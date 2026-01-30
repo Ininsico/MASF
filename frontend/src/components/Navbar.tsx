@@ -19,10 +19,12 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Services', href: '#services' },
-        { name: 'About Us', href: '#about' },
-        { name: 'Programs', href: '#programs' },
-        { name: 'Impact', href: '#impact' },
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/about' },
+        { name: 'Services', href: '/services' },
+        { name: 'Study Guidelines', href: '/study-guidelines' },
+        { name: 'Gallery', href: '/gallery' },
+        { name: 'Get Involved', href: '/get-involved' },
     ];
 
     return (

@@ -77,7 +77,7 @@ const ThriftDrive = () => {
                             <div className="w-12 h-[1px] bg-[#d4af37]" />
                             <span className="text-[#d4af37] font-bold uppercase tracking-widest text-sm font-jakarta">Sustainable Giving</span>
                         </div>
-                        <h2 className="text-6xl md:text-8xl font-serif text-[#1a1612] italic leading-[0.9] mb-6">
+                        <h2 className="text-6xl md:text-8xl font-serif text-[#1a1612] italic leading-[0.9] mb-6 pr-4">
                             The Thrift <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#b38f2d]">Drive</span>
                         </h2>

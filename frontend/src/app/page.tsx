@@ -18,6 +18,8 @@ import { Button } from '@/components/ui/Button';
 import HeroGrid from '@/components/HeroGrid';
 import PlantationGrid from '@/components/PlantationGrid';
 import ThriftDrive from '@/components/ThriftDrive';
+import MedicalCamp from '@/components/MedicalCamp';
+import Footer from '@/components/Footer';
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -55,26 +57,6 @@ export default function Home() {
       title: "Awareness Programs",
       desc: "Education and empowerment initiatives for community growth.",
       icon: Lightbulb
-    },
-    {
-      title: "Fun Activities",
-      desc: "Recreational events designed to bring joy to all ages.",
-      icon: Smile
-    },
-    {
-      title: "Community Development",
-      desc: "Building stronger, more resilient communities together.",
-      icon: Users
-    },
-    {
-      title: "Counseling Services",
-      desc: "Professional health and mental wellness support.",
-      icon: MessageCircle
-    },
-    {
-      title: "Study Guidelines",
-      desc: "Expert guidance for USMLE, PLAB, and OET exams.",
-      icon: GraduationCap
     }
   ];
 
@@ -112,9 +94,9 @@ export default function Home() {
 
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-5xl font-sans font-bold gradient-text hover:text-[#1a1612] transition-colors duration-300"
+            className="text-3xl md:text-5xl font-sans font-bold gradient-text hover:text-[#1a1612] transition-colors duration-300 whitespace-nowrap"
           >
-            Medical & <br /> Social Family
+            Medical & Social Family
           </motion.h2>
 
           <motion.p
@@ -210,9 +192,8 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
               Latest Episode
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif text-[#1a1612] italic">
-              The MASF <br />
-              Talkshow
+            <h2 className="text-4xl md:text-6xl font-serif text-[#1a1612] italic whitespace-nowrap">
+              The MASF Talkshow
             </h2>
             <p className="text-[#1a1612]/80 text-lg leading-relaxed font-jakarta">
               Exlusive interviews, study guidelines (USMLE, PLAB, OET), and mentorship for aspiring medical professionals.
@@ -246,18 +227,28 @@ export default function Home() {
 
       <ThriftDrive />
 
-      {/* Footer CTA */}
-      <footer className="w-full text-center py-20 border-t border-[#d4af37]/10">
-        <h2 className="text-[12vw] font-serif italic text-[#d4af37]/10 leading-none select-none pointer-events-none">
-          MASF FAMILY
-        </h2>
-        <div className="mt-[-6vw]">
-          <p className="text-[#1a1612]/70 mb-8 text-lg opacity-80 font-jakarta">Be a part of something bigger.</p>
-          <Button size="lg" className="bg-[#d4af37] text-white hover:bg-[#c5a059] rounded-full px-12 h-16 text-xl font-bold shadow-2xl font-jakarta">
-            Donate & Support
-          </Button>
+      <MedicalCamp />
+
+      {/* Footer CTA - Minimal & Clean */}
+      <section className="w-full relative py-20 flex flex-col items-center justify-center text-center">
+        <div className="relative z-10 max-w-full mx-auto px-6 space-y-8">
+          <h2 className="text-6xl md:text-8xl lg:text-[7rem] font-serif text-[#1a1612] italic leading-tight whitespace-nowrap">
+            From Empathy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#b38f2d]">to Action.</span>
+          </h2>
+
+          <p className="text-xl text-[#1a1612]/70 font-jakarta max-w-xl mx-auto">
+            Join us in building a healthier, more supportive community.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Button size="lg" className="bg-[#1a1612] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#1a1612] rounded-full px-12 h-20 text-xl font-bold shadow-2xl transition-all duration-300 font-serif italic">
+              Donate & Support
+            </Button>
+          </div>
         </div>
-      </footer>
+      </section>
+
+      <Footer />
     </div>
   );
 }
