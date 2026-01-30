@@ -7,6 +7,15 @@ import Image from 'next/image';
 import { Play, X, Image as ImageIcon, Film } from 'lucide-react';
 
 // --- Assets Data ---
+interface GalleryItem {
+    type: string;
+    src: string;
+    thumb?: string;
+    category: string;
+    title: string;
+    size: string;
+}
+
 const categories = [
     { id: 'all', label: 'All Moments' },
     { id: 'healthcare', label: 'Healthcare' },
@@ -15,7 +24,7 @@ const categories = [
     { id: 'events', label: 'Events & Talks' }
 ];
 
-const galleryItems = [
+const galleryItems: GalleryItem[] = [
     // Healthcare
     { type: 'video', src: '/landingpagepics/Medicalcamp.mp4', thumb: '/landingpagepics/Medicalcamp.png', category: 'healthcare', title: 'Medical Camp 2024', size: 'large' },
     { type: 'video', src: '/landingpagepics/Dentalcamp.mp4', category: 'healthcare', title: 'Dental Hygiene Drive', size: 'standard' },
@@ -52,7 +61,7 @@ const galleryItems = [
 
 const GalleryPage = () => {
     const [filter, setFilter] = useState('all');
-    const [selectedMedia, setSelectedMedia] = useState(null);
+    const [selectedMedia, setSelectedMedia] = useState<GalleryItem | null>(null);
 
     const filteredItems = filter === 'all'
         ? galleryItems
@@ -86,8 +95,8 @@ const GalleryPage = () => {
                             key={cat.id}
                             onClick={() => setFilter(cat.id)}
                             className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${filter === cat.id
-                                    ? 'bg-[#1a1612] text-[#d4af37] border-[#1a1612]'
-                                    : 'bg-transparent text-[#1a1612]/60 border-[#1a1612]/20 hover:border-[#1a1612] hover:text-[#1a1612]'
+                                ? 'bg-[#1a1612] text-[#d4af37] border-[#1a1612]'
+                                : 'bg-transparent text-[#1a1612]/60 border-[#1a1612]/20 hover:border-[#1a1612] hover:text-[#1a1612]'
                                 }`}
                         >
                             {cat.label}
