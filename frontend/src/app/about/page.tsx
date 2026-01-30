@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import RamadanDastarkhan from '@/components/RamadanDastarkhan';
 import OldAgeHomeVisit from '@/components/OldAgeHomeVisit';
+import AboutMedicalCamps from '@/components/AboutMedicalCamps';
 import Recap2024 from '@/components/Recap2024';
 import Footer from '@/components/Footer';
 
@@ -111,6 +112,10 @@ const AboutPage = () => {
             </section>
 
             <RamadanDastarkhan />
+
+            <OldAgeHomeVisit />
+
+            <AboutMedicalCamps />
 
             <Recap2024 />
 
