@@ -126,26 +126,72 @@ const ServicesPage = () => {
 
             <SpreadingSmiles />
 
-            {/* Services Grid */}
+            {/* Services Bento Grid */}
             <section className="px-6 py-20 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="p-8 rounded-[32px] bg-white border border-[#d4af37]/10 hover:border-[#d4af37]/40 shadow-lg hover:shadow-2xl transition-all duration-300 group"
-                        >
-                            <div className="w-14 h-14 rounded-full bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] mb-6 group-hover:scale-110 transition-transform">
-                                <service.icon size={28} />
-                            </div>
-                            <h3 className="text-2xl font-serif text-[#1a1612] mb-3">{service.title}</h3>
-                            <p className="text-[#1a1612]/70 leading-relaxed font-jakarta">
-                                {service.desc}
-                            </p>
-                        </motion.div>
-                    ))}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-5xl md:text-6xl font-serif italic text-[#1a1612] mb-6">Our Core Initiatives</h2>
+                    <div className="w-24 h-1 bg-[#d4af37] mx-auto rounded-full" />
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {services.map((service, idx) => {
+                        // Mobile Layout Logic: Highlight every 3rd item or similar pattern
+                        const isMobileHighlight = (idx === 0) || (idx === 3) || (idx === 4);
+
+                        return (
+                            <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className={`
+                                    relative p-8 rounded-[32px] overflow-hidden group hover:shadow-2xl transition-all duration-500
+                                    md:bg-white md:border md:border-[#d4af37]/10 md:text-[#1a1612] md:col-span-1
+                                    ${isMobileHighlight
+                                        ? 'bg-[#1a1612] text-[#fdf8f0] border-none'
+                                        : 'bg-white text-[#1a1612] border border-[#d4af37]/10'}
+                                `}
+                            >
+                                {/* Decorative Gradient - Hidden on Desktop unless we want to keep it? Original didn't have it. Let's hide it on desktop to be safe. */}
+                                <div className={`absolute top-0 right-0 w-[300px] h-[300px] rounded-full blur-[80px] opacity-20 -mr-20 -mt-20 pointer-events-none transition-opacity duration-500 group-hover:opacity-40 md:hidden
+                                    ${isMobileHighlight ? 'bg-[#d4af37]' : 'bg-[#d4af37]'}
+                                `} />
+
+                                <div className={`relative z-10 h-full flex flex-col justify-between gap-6`}>
+
+                                    <div className="space-y-4">
+                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:scale-110 
+                                            md:bg-[#d4af37]/10 md:text-[#d4af37]
+                                            ${isMobileHighlight ? 'bg-[#d4af37]/20 text-[#d4af37]' : 'bg-[#d4af37]/10 text-[#d4af37]'}
+                                        `}>
+                                            <service.icon size={28} />
+                                        </div>
+
+                                        <h3 className={`text-2xl md:text-2xl font-serif italic ${isMobileHighlight ? 'text-[#d4af37] md:text-[#1a1612] md:not-italic md:font-serif' : 'text-[#1a1612]'}`}>
+                                            {service.title}
+                                        </h3>
+
+                                        <p className={`font-jakarta text-base leading-relaxed ${isMobileHighlight ? 'text-[#fdf8f0]/80 md:text-[#1a1612]/70' : 'text-[#1a1612]/70'}`}>
+                                            {service.desc}
+                                        </p>
+                                    </div>
+
+                                    {/* Numbering - Only for Mobile highlight */}
+                                    <div className={`flex items-end justify-end md:hidden ${!isMobileHighlight && 'hidden'}`}>
+                                        <span className="text-6xl font-serif font-bold italic opacity-10 text-[#d4af37]">
+                                            0{idx + 1}
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </section>
 

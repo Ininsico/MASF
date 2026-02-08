@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 const gridImages = [
@@ -138,9 +139,11 @@ const PlantationGrid = () => {
                 viewport={{ once: true }}
                 className="mt-16 flex justify-center"
             >
-                <Button size="lg" className="bg-[#1a1612] text-[#d4af37] border border-[#d4af37] hover:bg-[#d4af37] hover:text-[#1a1612] text-xl px-12 py-8 rounded-full shadow-2xl transition-all duration-300 font-serif italic">
-                    View Full Gallery
-                </Button>
+                <Link href="/gallery">
+                    <Button size="lg" className="bg-[#1a1612] text-[#d4af37] border border-[#d4af37] hover:bg-[#d4af37] hover:text-[#1a1612] text-xl px-12 py-8 rounded-full shadow-2xl transition-all duration-300 font-serif italic">
+                        View Full Gallery
+                    </Button>
+                </Link>
             </motion.div>
         </section>
     );

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { UserPlus, Heart, Share2 } from 'lucide-react';
 
@@ -41,7 +42,9 @@ const GetInvolvedPage = () => {
                         <p className="text-[#1a1612]/70 leading-relaxed">
                             Join our team of dedicated volunteers and work on the ground to make a real difference.
                         </p>
-                        <Button className="w-full bg-[#d4af37] text-[#1a1612] hover:bg-[#c5a059] font-bold">Apply Now</Button>
+                        <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=masfpk@gmail.com&su=Volunteer%20Application" target="_blank" className="w-full">
+                            <Button className="w-full bg-[#d4af37] text-[#1a1612] hover:bg-[#c5a059] font-bold">Apply Now</Button>
+                        </Link>
                     </div>
 
                     {/* Donate */}
@@ -53,7 +56,9 @@ const GetInvolvedPage = () => {
                         <p className="border-t border-b border-[#f2e8cf]/10 py-4 opacity-80 leading-relaxed">
                             Your financial support enables us to buy medicines, food, and essentials for those in need.
                         </p>
-                        <Button className="w-full bg-[#f2e8cf] text-[#1a1612] hover:bg-white font-bold">Donate Now</Button>
+                        <Link href="/donate" className="w-full">
+                            <Button className="w-full bg-[#f2e8cf] text-[#1a1612] hover:bg-white font-bold">Donate Now</Button>
+                        </Link>
                     </div>
 
                     {/* Partner */}
@@ -65,7 +70,9 @@ const GetInvolvedPage = () => {
                         <p className="text-[#1a1612]/70 leading-relaxed">
                             Collaborate with us as an organization or sponsor to amplify our reach and impact.
                         </p>
-                        <Button className="w-full bg-[#d4af37] text-[#1a1612] hover:bg-[#c5a059] font-bold">Contact Us</Button>
+                        <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=masfpk@gmail.com&su=Partnership%20Inquiry" target="_blank" className="w-full">
+                            <Button className="w-full bg-[#d4af37] text-[#1a1612] hover:bg-[#c5a059] font-bold">Contact Us</Button>
+                        </Link>
                     </div>
                 </div>
             </section>
