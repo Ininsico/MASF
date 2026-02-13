@@ -1,121 +1,98 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Stethoscope, Activity, Heart, UserPlus } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Heart, Users, Stethoscope, ClipboardCheck, ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
 
 const AboutMedicalCamps = () => {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
-
-    const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
-    const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
     return (
-        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-24 px-6 relative">
-
-            {/* Header */}
-            <div className="text-center mb-16">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/5 text-[#d4af37] text-sm font-bold uppercase tracking-widest"
-                >
-                    <Stethoscope size={14} /> Healthcare Initiative
-                </motion.div>
-                <h2 className="text-5xl md:text-8xl font-serif text-[#1a1612] italic leading-tight">
-                    Medical <span className="text-[#d4af37]">Camps</span>
-                </h2>
-                <p className="mt-6 text-xl text-[#1a1612]/70 max-w-2xl mx-auto font-light leading-relaxed font-jakarta">
-                    Bridging the gap in healthcare access. We organize regular medical camps to provide free checkups, medication, and specialized care to remote communities.
-                </p>
-            </div>
-
-            {/* Video Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto">
-
-                {/* Main Feature Video */}
-                <motion.div
-                    style={{ scale }}
-                    className="lg:col-span-2 relative rounded-[32px] overflow-hidden shadow-2xl border-4 border-white group h-[500px] lg:h-[600px]"
-                >
-                    <div className="absolute top-6 left-6 z-20 px-4 py-2 bg-red-600 text-white text-xs font-bold rounded-full uppercase tracking-wider flex items-center gap-2">
-                        <Activity size={14} /> Primary Care
-                    </div>
+        <section className="w-full max-w-[1400px] mx-auto py-32 px-6 relative">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="bg-slate-900 rounded-[80px] overflow-hidden shadow-[0_40px_100px_-20px_rgba(15,23,42,0.3)] relative group border-8 border-white"
+            >
+                {/* Visual Aspect - Dynamic Video Background */}
+                <div className="absolute inset-0 z-0">
                     <video
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover opacity-40 transition-transform duration-1000 group-hover:scale-105"
                         autoPlay
                         muted
                         loop
                         playsInline
                     >
-                        <source src="/landingpagepics/Medicalcamp.mp4" type="video/mp4" />
+                        <source src="/landingpagepics/medicalcampawareness.mp4" type="video/mp4" />
                     </video>
-                    <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-[#1a1612]/90 to-transparent">
-                        <h3 className="text-2xl font-bold text-white mb-2">Comprehensive Checkups</h3>
-                        <p className="text-white/80 font-jakarta text-sm max-w-lg">
-                            From general exams to specialized screenings, our team ensures every patient receives thorough attention and care.
-                        </p>
-                    </div>
-                </motion.div>
-
-                {/* Vertical Stack */}
-                <div className="flex flex-col gap-6 h-[500px] lg:h-[600px]">
-
-                    {/* Top Side Video */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="relative flex-1 rounded-[32px] overflow-hidden shadow-xl border-4 border-white group"
-                    >
-                        <div className="absolute top-4 left-4 z-20 px-3 py-1 bg-[#1a1612] text-[#d4af37] text-xs font-bold rounded-full uppercase tracking-wider flex items-center gap-2">
-                            <UserPlus size={12} /> Volunteers
-                        </div>
-                        <video
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                        >
-                            <source src="/landingpagepics/HeroSectionvideo.mp4" type="video/mp4" />
-                        </video>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1612]/60 via-transparent to-transparent" />
-                        <div className="absolute bottom-6 left-6 text-white text-lg font-bold font-serif">Dedicated Team</div>
-                    </motion.div>
-
-                    {/* Bottom Side Video */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="relative flex-1 rounded-[32px] overflow-hidden shadow-xl border-4 border-white group"
-                    >
-                        <div className="absolute top-4 left-4 z-20 px-3 py-1 bg-[#1a1612] text-[#d4af37] text-xs font-bold rounded-full uppercase tracking-wider flex items-center gap-2">
-                            <Heart size={12} /> Impact
-                        </div>
-                        <video
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                        >
-                            <source src="/landingpagepics/HeroSectionvideo3.mp4" type="video/mp4" />
-                        </video>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1612]/60 via-transparent to-transparent" />
-                        <div className="absolute bottom-6 left-6 text-white text-lg font-bold font-serif">Community First</div>
-                    </motion.div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
                 </div>
 
-            </div>
+                {/* Content Overlay */}
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 p-12 md:p-24 items-center">
+                    <div className="space-y-12">
+                        <div className="space-y-6">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="flex items-center gap-4"
+                            >
+                                <div className="h-[1px] w-12 bg-blue-500" />
+                                <span className="text-blue-400 font-black uppercase tracking-[0.3em] text-xs">Legacy of Care</span>
+                            </motion.div>
+                            <h2 className="text-5xl md:text-7xl font-serif text-white italic leading-[1.1]">
+                                Our Medical <br />
+                                <span className="text-blue-500">Milestones</span>
+                            </h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            {[
+                                { count: "50+", label: "Medical Camps", icon: Heart },
+                                { count: "10k+", label: "Patients Treated", icon: Users },
+                                { count: "20+", label: "Specialists", icon: Stethoscope },
+                                { count: "Free", label: "Medicines Provided", icon: ClipboardCheck },
+                            ].map((stat, i) => (
+                                <motion.div
+                                    key={stat.label}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="flex items-center gap-5"
+                                >
+                                    <div className="w-14 h-14 rounded-2xl bg-blue-600/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
+                                        <stat.icon size={28} />
+                                    </div>
+                                    <div>
+                                        <div className="text-3xl font-bold text-white leading-none">{stat.count}</div>
+                                        <div className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-2">{stat.label}</div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="lg:pl-12">
+                        <div className="p-10 md:p-14 rounded-[50px] bg-white/5 backdrop-blur-xl border border-white/10 space-y-8 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl" />
+
+                            <p className="text-2xl font-serif italic text-slate-200 leading-relaxed font-light">
+                                "We don't just treat symptoms; we restore dignity. Since our inception, MASF has been the bridge for thousands who had lost hope in healthcare."
+                            </p>
+
+                            <Link href="/services">
+                                <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white rounded-full px-10 h-16 font-bold text-lg shadow-xl shadow-blue-600/30">
+                                    Our Full Journey <ArrowUpRight className="ml-2" size={20} />
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
         </section>
     );
 };

@@ -15,22 +15,22 @@ const FoodCamp = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
     return (
-        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-24 px-6 relative">
+        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-32 px-6 relative">
 
             {/* Header */}
-            <div className="text-center mb-16 relative z-10">
+            <div className="text-center mb-20 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/5 text-[#d4af37] text-sm font-bold uppercase tracking-widest"
+                    className="inline-flex items-center gap-2 mb-6 px-6 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-600 text-sm font-black uppercase tracking-widest"
                 >
-                    <Truck size={14} /> Ration Drive
+                    <Truck size={14} fill="currentColor" /> Ration Drive
                 </motion.div>
-                <h2 className="text-5xl md:text-8xl font-serif text-[#1a1612] italic leading-tight">
-                    Food <span className="text-[#d4af37]">Camp</span>
+                <h2 className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-tight">
+                    Food <span className="text-blue-600">Camp</span>
                 </h2>
-                <p className="mt-6 text-xl text-[#1a1612]/70 max-w-2xl mx-auto font-light leading-relaxed font-jakarta">
+                <p className="mt-8 text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed font-jakarta">
                     Fighting hunger, restoring dignity. Our food camps provide essential ration packs and cooked meals to hundreds of families in underserved areas.
                 </p>
             </div>
@@ -38,39 +38,39 @@ const FoodCamp = () => {
             {/* Content Container */}
             <motion.div
                 style={{ scale, opacity }}
-                className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:h-[600px] items-stretch"
+                className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:h-[650px] items-stretch"
             >
                 {/* Info Card (Left) */}
-                <div className="flex flex-col justify-center p-10 md:p-14 rounded-[40px] bg-[#1a1612] text-[#f2e8cf] shadow-xl border border-[#d4af37]/20 relative overflow-hidden h-full order-2 lg:order-1">
+                <div className="flex flex-col justify-center p-12 md:p-16 rounded-[60px] bg-slate-900 text-white shadow-2xl border border-white/5 relative overflow-hidden h-full order-2 lg:order-1">
                     {/* Decorative Background */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#d4af37]/10 rounded-full blur-[80px]" />
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px]" />
 
-                    <div className="relative z-10 space-y-8">
+                    <div className="relative z-10 space-y-10">
                         <div>
-                            <h3 className="text-3xl font-serif italic text-[#d4af37] mb-4">Feeding Hope</h3>
-                            <p className="text-lg opacity-80 leading-relaxed font-light font-jakarta">
-                                "If you cannot feed a hundred people, then feed just one." <br />
+                            <h3 className="text-4xl font-serif italic text-blue-400 mb-6 leading-tight">Feeding Hope</h3>
+                            <p className="text-lg text-slate-400 leading-relaxed font-light font-jakarta">
+                                "If you cannot feed a hundred people, then feed just one." <br /><br />
                                 We believe that no one should sleep hungry. Our dedicated team works tirelessly to identify and support the most vulnerable households, ensuring that help reaches where it is needed most.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                                <div className="p-3 rounded-full bg-[#d4af37]/20 text-[#d4af37]">
-                                    <Utensils size={24} />
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-6">
+                            <div className="flex items-center gap-5 bg-white p-6 rounded-[32px] border border-blue-50 shadow-sm transition-transform hover:scale-105">
+                                <div className="p-4 rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
+                                    <Utensils size={28} />
                                 </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-white">1000+</div>
-                                    <div className="text-xs opacity-60 uppercase tracking-wider font-bold">Meals Served</div>
+                                <div className="min-w-0">
+                                    <div className="text-3xl font-bold text-slate-900 leading-none">1000+</div>
+                                    <div className="text-xs text-slate-400 uppercase tracking-widest font-black mt-2">Meals Served</div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                                <div className="p-3 rounded-full bg-[#d4af37]/20 text-[#d4af37]">
-                                    <Heart size={24} />
+                            <div className="flex items-center gap-5 bg-white p-6 rounded-[32px] border border-blue-50 shadow-sm transition-transform hover:scale-105">
+                                <div className="p-4 rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-600/20">
+                                    <Heart size={28} />
                                 </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-white">Monthly</div>
-                                    <div className="text-xs opacity-60 uppercase tracking-wider font-bold">Ration Support</div>
+                                <div className="min-w-0">
+                                    <div className="text-3xl font-bold text-slate-900 leading-none">Monthly</div>
+                                    <div className="text-xs text-slate-400 uppercase tracking-widest font-black mt-2">Ration Packs</div>
                                 </div>
                             </div>
                         </div>
@@ -78,12 +78,12 @@ const FoodCamp = () => {
                 </div>
 
                 {/* Video Card (Right) */}
-                <div className="relative h-[500px] lg:h-full rounded-[40px] overflow-hidden shadow-2xl border-4 border-white group order-1 lg:order-2">
-                    <div className="absolute top-6 right-6 z-20 px-4 py-2 bg-[#d4af37] text-[#1a1612] text-xs font-bold rounded-full uppercase tracking-wider flex items-center gap-2">
+                <div className="relative h-[500px] lg:h-full rounded-[60px] overflow-hidden shadow-2xl border-8 border-white group order-1 lg:order-2 bg-slate-100">
+                    <div className="absolute top-8 right-8 z-20 px-6 py-2 bg-blue-600 text-white text-xs font-black rounded-full uppercase tracking-widest flex items-center gap-2">
                         <Utensils size={14} /> Community Service
                     </div>
                     <video
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                         autoPlay
                         muted
                         loop
@@ -91,7 +91,9 @@ const FoodCamp = () => {
                     >
                         <source src="/landingpagepics/FoodCamp.mp4" type="video/mp4" />
                     </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a1612]/40 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent">
+                        <p className="text-white font-serif italic text-3xl">Direct Impact on Ground</p>
+                    </div>
                 </div>
 
             </motion.div>

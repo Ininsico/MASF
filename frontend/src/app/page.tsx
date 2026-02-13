@@ -9,368 +9,255 @@ import {
   Stethoscope,
   Utensils,
   Lightbulb,
-  Smile,
   Users,
-  MessageCircle,
-  GraduationCap,
-  ArrowRight
+  ArrowRight,
+  ShieldCheck,
+  Globe,
+  Award
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import HeroGrid from '@/components/HeroGrid';
 import PlantationGrid from '@/components/PlantationGrid';
 import ThriftDrive from '@/components/ThriftDrive';
 import MedicalCamp from '@/components/MedicalCamp';
 import Footer from '@/components/Footer';
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
 
 export default function Home() {
-  const services = [
+  const initiatives = [
     {
       title: "Social Welfare",
-      desc: "Providing basic needs and support to the underprivileged.",
-      icon: Heart
+      desc: "Delivering essential support and hope to marginalized communities across the nation.",
+      icon: Heart,
+      color: "bg-blue-50 text-blue-600"
     },
     {
-      title: "NGO Support",
-      desc: "Collaborating with other organizations to drive systemic change.",
-      icon: Handshake
+      title: "NGO Collaboration",
+      desc: "Partnering with global and local organizations to amplify our collective social impact.",
+      icon: Handshake,
+      color: "bg-indigo-50 text-indigo-600"
     },
     {
-      title: "Health & Food Camps",
-      desc: "Accessible healthcare screenings and nutritious food distribution.",
-      icon: Stethoscope
+      title: "Health & Care",
+      desc: "Comprehensive medical screenings and essential healthcare services for all.",
+      icon: Stethoscope,
+      color: "bg-cyan-50 text-cyan-600"
     },
     {
-      title: "Awareness Programs",
-      desc: "Education and empowerment initiatives for community growth.",
-      icon: Lightbulb
+      title: "Education & Awareness",
+      desc: "Empowering the next generation through knowledge and specialized mentorship programs.",
+      icon: Lightbulb,
+      color: "bg-sky-50 text-sky-600"
     }
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-6 flex flex-col items-center overflow-x-hidden bg-[#fdf8f0]">
+    <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
 
       {/* Hero Section */}
-      <motion.section
-        className="max-w-7xl mx-auto w-full py-8 lg:py-24 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
-        {/* Background Elements - Gold Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+      <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-32 pb-20">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover scale-105"
+        >
+          <source src="/landingpagepics/HeroSectionvideo2.mp4" type="video/mp4" />
+        </video>
 
-        {/* Text Content - First on mobile, second on desktop */}
-        <motion.div variants={itemVariants} className="text-center space-y-6 lg:space-y-8 order-1 lg:order-2 w-full flex flex-col items-center">
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-[#d4af37]/20 text-[#d4af37] text-sm font-medium">
-            <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-            Empowering Communities, One Life at a Time
-          </motion.div>
+        {/* Cinematic Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-950/80" />
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[16rem] font-serif font-medium text-[#1a1612] tracking-tighter leading-[0.8] italic"
+        <div className="max-w-7xl mx-auto px-6 relative z-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="space-y-12"
           >
-            MASF
-          </motion.h1>
+            <h1 className="text-4xl md:text-7xl lg:text-[6.5rem] font-bold text-white leading-[1.2] tracking-normal px-4" dir="rtl">
+              "کھجور کے ایک ٹکڑے کے ذریعے ہی سہی، <br className="hidden md:block" />
+              <span className="text-blue-400">جہنم کی آگ</span> سے بچو۔"
+            </h1>
 
-          <motion.h2
-            variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-bold gradient-text hover:text-[#1a1612] transition-colors duration-300"
-          >
-            Medical & Social Family
-          </motion.h2>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-[#1a1612]/70 max-w-xl leading-relaxed font-sans text-center"
-          >
-            A non-profit organization dedicated to holistic community welfare through healthcare, education, and social support. We build bridges to a better future.
-          </motion.p>
-
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-            <Link href="/get-involved" className="w-full sm:w-auto">
-              <Button size="lg" className="bg-[#d4af37] text-white hover:bg-[#c5a059] text-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8 rounded-2xl w-full font-bold shadow-xl shadow-[#d4af37]/10 font-jakarta">
-                Join Our Mission
-              </Button>
-            </Link>
-            <Link href="/about" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="border-[#d4af37]/20 text-[#d4af37] hover:bg-[#d4af37]/10 text-base sm:text-lg h-12 sm:h-14 px-6 sm:px-8 rounded-2xl w-full bg-transparent font-jakarta">
-                Learn More <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Hero Grid - Second on mobile, first on desktop */}
-        <motion.div variants={itemVariants} className="order-2 lg:order-1 w-full">
-          <HeroGrid />
-        </motion.div>
-      </motion.section>
-
-      {/* Stats Section */}
-      <motion.section
-        className="w-full max-w-7xl mx-auto mb-32"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Mobile: Creative Zigzag Layout */}
-        <div className="md:hidden relative px-4 space-y-8">
-          {[
-            { label: "Community Members", value: "5,000+", icon: Users, color: "from-[#d4af37] to-[#c5a059]", position: "left" },
-            { label: "Food Camps Held", value: "120+", icon: Utensils, color: "from-[#c5a059] to-[#b38f2d]", position: "right" },
-            { label: "Medical Aid Provided", value: "2,500+", icon: Stethoscope, color: "from-[#b38f2d] to-[#d4af37]", position: "center" },
-          ].map((stat, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, x: stat.position === "left" ? -50 : stat.position === "right" ? 50 : 0, y: 30 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2, duration: 0.6, type: "spring" }}
-              className={`relative ${stat.position === "left" ? "mr-auto w-[85%]" :
-                stat.position === "right" ? "ml-auto w-[85%]" :
-                  "mx-auto w-[90%]"
-                }`}
-              style={{
-                transform: stat.position === "left" ? "rotate(-2deg)" :
-                  stat.position === "right" ? "rotate(2deg)" :
-                    "rotate(0deg)"
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="flex flex-col items-center gap-6"
             >
-              <div className="glass-panel p-8 rounded-[28px] flex flex-col items-center text-center space-y-5 border-2 border-[#d4af37]/20 bg-white/60 shadow-xl overflow-hidden">
-                {/* Background Gradient Blob */}
-                <div className={`absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br ${stat.color} opacity-10 rounded-full blur-3xl`} />
+              <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+              <p className="text-xl md:text-4xl font-serif italic text-blue-100 tracking-wide">
+                Sahih al-Bukhari (1417)
+              </p>
 
-                {/* Icon - Top */}
-                <div className="relative">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-20 rounded-2xl blur-lg`} />
-                  <div className={`relative w-14 h-14 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center shadow-lg`}>
-                    <stat.icon className="text-white w-7 h-7" />
-                  </div>
-                </div>
-
-                {/* Number - Large */}
-                <h3 className="text-5xl font-serif text-[#1a1612] italic font-bold relative z-10">
-                  {stat.value}
-                </h3>
-
-                {/* Label */}
-                <p className="text-[#1a1612]/70 font-jakarta font-semibold text-base tracking-wide relative z-10">
-                  {stat.label}
-                </p>
-
-                {/* Decorative Line */}
-                <div className={`w-12 h-1 bg-gradient-to-r ${stat.color} rounded-full`} />
+              <div className="flex flex-col sm:flex-row gap-6 pt-12 pb-32 items-center justify-center">
+                <Link href="/donate" className="w-full sm:w-auto">
+                  <Button className="bg-blue-600 hover:bg-white text-white hover:text-blue-600 rounded-full px-12 h-16 font-black text-lg transition-all hover:scale-105 shadow-2xl shadow-blue-600/40 w-full sm:w-auto border-2 border-blue-600 hover:border-white">
+                    Donate Now
+                  </Button>
+                </Link>
+                <Link href="/about" className="w-full sm:w-auto">
+                  <Button className="bg-white/10 hover:bg-white text-white hover:text-slate-950 border-2 border-white/30 hover:border-white backdrop-blur-md rounded-full px-12 h-16 font-black text-lg transition-all hover:scale-105 w-full sm:w-auto">
+                    Our Mission
+                  </Button>
+                </Link>
               </div>
             </motion.div>
-          ))}
+          </motion.div>
         </div>
 
-        {/* Desktop: Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8">
-          {[
-            { label: "Community Members", value: "5,000+", icon: Users, color: "from-[#d4af37] to-[#c5a059]" },
-            { label: "Food Camps Held", value: "120+", icon: Utensils, color: "from-[#c5a059] to-[#b38f2d]" },
-            { label: "Medical Aid Provided", value: "2,500+", icon: Stethoscope, color: "from-[#b38f2d] to-[#d4af37]" },
-          ].map((stat, i) => (
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
+        >
+          <div className="w-[1px] h-20 bg-gradient-to-b from-blue-400 to-transparent" />
+        </motion.div>
+      </section>
+
+
+
+      {/* Achievements Section - High Impact Overhaul */}
+      <section className="py-24 md:py-48 relative overflow-hidden bg-white">
+        <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+          {/* Achievements Grid Area - Full Width */}
+          <div className="w-full space-y-16">
             <motion.div
-              key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
-              className="relative group"
+              className="space-y-4 mb-20 text-center flex flex-col items-center"
             >
-              <div className="glass-panel p-10 rounded-[32px] flex flex-col items-center text-center space-y-6 border border-[#d4af37]/20 bg-white/50 hover:bg-white/70 transition-all duration-500 hover:shadow-2xl hover:shadow-[#d4af37]/10 hover:-translate-y-2 overflow-hidden">
-                {/* Background Gradient Blob */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stat.color} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity duration-500`} />
+              <div className="h-[2px] w-32 bg-blue-600 mb-4" />
+              <h2 className="text-5xl md:text-8xl font-serif text-blue-950 italic leading-none">
+                Tangible Milestones
+              </h2>
+            </motion.div>
 
-                {/* Number - Large and Bold */}
-                <motion.h3
-                  className="text-6xl md:text-7xl font-serif text-[#1a1612] italic font-bold relative z-10"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+              {/* Ramadan Dastarkhan */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="group relative h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
+              >
+                <video
+                  autoPlay muted loop playsInline
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80"
                 >
-                  {stat.value}
-                </motion.h3>
-
-                {/* Icon - Centered with Animated Background */}
-                <div className="relative">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500`} />
-                  <div className={`relative w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                    <stat.icon className="text-white w-8 h-8" />
-                  </div>
+                  <source src="/landingpagepics/Dashtarkhan.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
+                  <div className="text-blue-400 font-black text-xs uppercase tracking-[0.4em]">Resource Distribution</div>
+                  <h3 className="text-4xl md:text-5xl font-serif text-white italic">Ramadan <br /> Dastarkhan</h3>
+                  <p className="text-white/60 font-light text-base max-w-xs">Connecting with the spirit of giving by feeding thousands across Pakistan's major urban centers.</p>
                 </div>
+              </motion.div>
 
-                {/* Label - Bottom */}
-                <p className="text-[#1a1612]/70 font-jakarta font-semibold text-lg tracking-wide relative z-10">
-                  {stat.label}
-                </p>
+              {/* Green Pakistan */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group relative h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
+              >
+                <img src="/landingpagepics/plantation/plantation3.png" alt="Green Pakistan" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
+                  <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.4em]">Eco Restoration</div>
+                  <h3 className="text-4xl md:text-5xl font-serif text-white italic">Green <br /> Pakistan</h3>
+                  <p className="text-white/60 font-light text-base max-w-xs">A nationwide movement to restore Pakistan's green cover, one sapling at a time.</p>
+                </div>
+              </motion.div>
 
-                {/* Decorative Line */}
-                <div className={`w-16 h-1 bg-gradient-to-r ${stat.color} rounded-full opacity-50 group-hover:w-24 group-hover:opacity-100 transition-all duration-500`} />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* Services Grid */}
-      <section id="services" className="w-full max-w-7xl mx-auto mb-32 px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-6xl font-serif text-[#1a1612] mb-6 italic">Our Initiatives</h2>
-          <p className="text-[#1a1612]/60 text-lg max-w-2xl mx-auto font-jakarta">
-            From medical education to recreational activities, we provide comprehensive support for a thriving society.
-          </p>
-        </motion.div>
-
-        {/* Mobile: Creative Asymmetric Grid */}
-        <div className="md:hidden grid grid-cols-2 gap-4">
-          {services.map((service, i) => (
-            <motion.div
-              key={i}
-              className={`glass-panel p-6 rounded-[28px] border border-[#d4af37]/10 flex flex-col items-start bg-white/40 ${i === 0 ? 'col-span-2 min-h-[200px]' :
-                i === 1 ? 'col-span-1 min-h-[240px]' :
-                  i === 2 ? 'col-span-1 min-h-[240px]' :
-                    'col-span-2 min-h-[180px]'
-                }`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-            >
-              <div className={`w-12 h-12 bg-[#d4af37] rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-[#d4af37]/20 ${i === 0 ? 'mb-6' : ''}`}>
-                <service.icon className="text-white w-6 h-6" />
-              </div>
-              <h3 className={`font-bold text-[#1a1612] mb-2 font-jakarta ${i === 0 ? 'text-2xl mb-4' : 'text-lg'}`}>{service.title}</h3>
-              <p className={`text-[#1a1612]/70 leading-relaxed font-jakarta ${i === 0 ? 'text-base' : 'text-sm'}`}>
-                {service.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Desktop: 4-Column Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, i) => (
-            <motion.div
-              key={i}
-              className="glass-panel p-8 rounded-[32px] hover:-translate-y-2 transition-transform duration-300 border border-[#d4af37]/10 flex flex-col items-start bg-white/40"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <div className="w-12 h-12 bg-[#d4af37] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-[#d4af37]/20">
-                <service.icon className="text-white w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-[#1a1612] mb-3 font-jakarta">{service.title}</h3>
-              <p className="text-[#1a1612]/70 leading-relaxed text-sm font-jakarta">
-                {service.desc}
-              </p>
-            </motion.div>
-          ))}
+              {/* Free Medical Camps */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="group relative h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
+              >
+                <img src="/landingpagepics/Medicalcamp.png" alt="Medical Camp" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-70" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
+                  <div className="text-blue-400 font-black text-xs uppercase tracking-[0.4em]">Healthcare Mission</div>
+                  <h2 className="text-4xl md:text-5xl font-serif text-white italic leading-tight">Beyond The Clinic</h2>
+                  <p className="text-white/70 text-base font-light leading-relaxed max-w-xs">
+                    Bringing healthcare to those who need it most. Our free medical and dental camps have served over 25,000+ patients in rural areas.
+                  </p>
+                  <Link href="/gallery" className="pt-4">
+                    <Button className="bg-white text-blue-950 hover:bg-blue-400 hover:text-white rounded-full h-14 px-10 text-xs font-black uppercase tracking-widest transition-all shadow-xl">
+                      Explore Impact
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* MASF Talkshow Section */}
-      <motion.section
-        className="w-full max-w-7xl mx-auto glass-panel p-12 rounded-[48px] relative overflow-hidden mb-20 border border-[#d4af37]/20 bg-white/40"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-[#d4af37]/20 text-[#d4af37] text-sm font-medium">
-              <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-              Latest Episode
-            </div>
-            <h2 className="text-4xl md:text-6xl font-serif text-[#1a1612] italic whitespace-nowrap">
-              The MASF Talkshow
+      {/* Featured Grids with Modern Spacing */}
+      <section className="space-y-40 py-20">
+        <PlantationGrid />
+        <ThriftDrive />
+        <MedicalCamp />
+      </section>
+
+      {/* Big Impact CTA */}
+      <section className="py-32 px-6 text-center relative">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h2 className="text-6xl md:text-9xl font-serif text-slate-900 italic tracking-tighter leading-tight">
+              Ready to <span className="text-blue-600">Make</span> <br /> a Difference?
             </h2>
-            <p className="text-[#1a1612]/80 text-lg leading-relaxed font-jakarta">
-              Exlusive interviews, study guidelines (USMLE, PLAB, OET), and mentorship for aspiring medical professionals.
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto font-jakarta">
+              Your contribution can provide medicine to a child, food to a family, or education to an aspiring doctor.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/study-guidelines">
-                <Button size="lg" className="bg-[#d4af37] text-white hover:bg-[#c5a059] rounded-2xl px-8 font-bold font-jakarta w-full sm:w-auto">
-                  Watch Now
-                </Button>
-              </Link>
-              <Link href="/gallery">
-                <Button size="lg" variant="outline" className="border-[#d4af37]/30 text-[#d4af37] hover:bg-[#d4af37]/10 rounded-2xl px-8 font-bold font-jakarta w-full sm:w-auto">
-                  View Archive
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex-1 w-full h-[300px] md:h-[400px] glass-panel rounded-3xl bg-black border border-[#d4af37]/10 flex items-center justify-center overflow-hidden relative shadow-2xl">
-            <video
-              className="w-full h-full object-cover"
-              controls
-              playsInline
+          </motion.div>
+
+          <Link href="/donate" className="inline-block">
+            <motion.button
+              className="bg-blue-600 text-white px-16 py-8 rounded-full text-2xl font-bold shadow-2xl hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 font-serif italic"
+              whileHover={{ rotate: 1 }}
             >
-              <source src="/landingpagepics/Talkshow.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              Donate Now
+            </motion.button>
+          </Link>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-20">
+            {[
+              { label: "Secure Payments", icon: ShieldCheck },
+              { label: "Global Reach", icon: Globe },
+              { label: "Direct Impact", icon: Heart },
+              { label: "Verified NGO", icon: Award },
+            ].map((feature, i) => (
+              <div key={i} className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
+                  <feature.icon size={24} />
+                </div>
+                <span className="text-xs font-black uppercase tracking-widest text-slate-400">{feature.label}</span>
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* Decorative Blur */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[120px] pointer-events-none" />
-      </motion.section>
-
-      <PlantationGrid />
-
-      <ThriftDrive />
-
-      <MedicalCamp />
-
-      {/* Footer CTA - Minimal & Clean */}
-      <section className="w-full relative py-20 flex flex-col items-center justify-center text-center">
-        <div className="relative z-10 max-w-full mx-auto px-6 space-y-8">
-          <h2 className="text-6xl md:text-8xl lg:text-[7rem] font-serif text-[#1a1612] italic leading-tight whitespace-nowrap">
-            From Empathy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#b38f2d]">to Action.</span>
-          </h2>
-
-          <p className="text-xl text-[#1a1612]/70 font-jakarta max-w-xl mx-auto">
-            Join us in building a healthier, more supportive community.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link href="/donate">
-              <Button size="lg" className="bg-[#1a1612] text-[#d4af37] hover:bg-[#d4af37] hover:text-[#1a1612] rounded-full px-12 h-20 text-xl font-bold shadow-2xl transition-all duration-300 font-serif italic">
-                Donate & Support
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      </section >
 
       <Footer />
-    </div>
+    </div >
   );
 }

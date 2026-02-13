@@ -1,37 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  /* Inverse: Premium Light Cream Background */
-  --background: #fdf8f0;
-  /* Dark Bronze/Brown text */
-  --foreground: #1a1612;
+  /* Premium Blue and White Theme */
+  --background: #ffffff;
+  --foreground: #0f172a;
 
   --card: #ffffff;
-  --card-foreground: #1a1612;
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #1a1612;
+  --popover-foreground: #0f172a;
 
-  --primary: #d4af37;
-  /* Metallic Gold */
+  --primary: #2563eb;
+  /* Royal Blue */
   --primary-foreground: #ffffff;
 
-  --secondary: rgba(212, 175, 55, 0.1);
-  --secondary-foreground: #1a1612;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
 
-  --muted: rgba(26, 22, 18, 0.05);
-  --muted-foreground: rgba(26, 22, 18, 0.6);
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
 
-  --accent: #d4af37;
-  --accent-foreground: #1a1612;
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
 
-  --destructive: #ff4444;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: rgba(212, 175, 55, 0.2);
-  --input: rgba(212, 175, 55, 0.2);
-  --ring: #d4af37;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #3b82f6;
 
-  --radius: 0.75rem;
+  --radius: 1rem;
 
   /* Manual font mapping */
   --font-instrument: 'Instrument Serif', serif;
@@ -67,6 +66,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-jakarta);
   overflow-x: hidden;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.03) 0px, transparent 50%);
 }
 
 h1,
@@ -79,27 +81,32 @@ h6 {
 }
 
 .glass-nav {
-  background: rgba(253, 248, 240, 0.85);
-  /* Light Cream w/ opacity */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-  /* Subtle Gold Border */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.4);
-  /* Frosted Glass */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  /* Gold Border */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.05), 0 4px 6px -4px rgba(37, 99, 235, 0.05);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #1a1612 0%, #d4af37 100%);
-  /* Dark to Gold */
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.blue-glow {
+  box-shadow: 0 0 50px -10px rgba(37, 99, 235, 0.2);
+}
+
+::selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #1e40af;
 }

@@ -68,35 +68,37 @@ const GalleryPage = () => {
         : galleryItems.filter(item => item.category === filter);
 
     return (
-        <div className="min-h-screen pt-24 bg-[#fdf8f0] text-[#1a1612] font-jakarta">
+        <div className="min-h-screen pt-24 bg-white text-slate-900 font-jakarta">
 
             {/* Header */}
-            <section className="relative px-6 py-20 flex flex-col items-center text-center">
+            <section className="relative px-6 py-32 flex flex-col items-center text-center overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] -z-10" />
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="max-w-4xl mx-auto space-y-6"
+                    className="max-w-4xl mx-auto space-y-8"
                 >
-                    <span className="inline-block px-4 py-1.5 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 text-[#d4af37] text-sm font-bold uppercase tracking-widest">
-                        Visual Journey
+                    <span className="inline-block px-6 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-600 text-xs font-black uppercase tracking-widest">
+                        Visual Impact Archive
                     </span>
-                    <h1 className="text-6xl md:text-8xl font-serif italic leading-[0.9]">
-                        Captured <span className="text-[#d4af37]">Moments</span>
+                    <h1 className="text-6xl md:text-9xl font-serif italic leading-[0.85] tracking-tighter">
+                        Captured <span className="text-blue-600">Moments</span>
                     </h1>
-                    <p className="text-xl text-[#1a1612]/70 leading-relaxed font-light max-w-2xl mx-auto">
-                        Through the lens of compassion. Witness the impact of our collective efforts in healthcare, education, and social welfare.
+                    <p className="text-2xl text-slate-500 leading-relaxed font-light max-w-2xl mx-auto">
+                        Witness the tangible difference of our collective efforts in healthcare, education, and social welfare across Pakistan.
                     </p>
                 </motion.div>
 
                 {/* Filter Tabs */}
-                <div className="mt-12 flex flex-wrap justify-center gap-2 md:gap-4">
+                <div className="mt-16 flex flex-wrap justify-center gap-3">
                     {categories.map((cat) => (
                         <button
                             key={cat.id}
                             onClick={() => setFilter(cat.id)}
-                            className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${filter === cat.id
-                                ? 'bg-[#1a1612] text-[#d4af37] border-[#1a1612]'
-                                : 'bg-transparent text-[#1a1612]/60 border-[#1a1612]/20 hover:border-[#1a1612] hover:text-[#1a1612]'
+                            className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-500 border-2 ${filter === cat.id
+                                ? 'bg-blue-600 text-white border-blue-600 shadow-xl shadow-blue-600/20'
+                                : 'bg-transparent text-slate-400 border-slate-100 hover:border-blue-200 hover:text-blue-600 hover:bg-blue-50/30'
                                 }`}
                         >
                             {cat.label}
@@ -106,21 +108,21 @@ const GalleryPage = () => {
             </section>
 
             {/* Gallery Grid */}
-            <section className="px-6 pb-32 max-w-[1600px] mx-auto">
+            <section className="px-6 pb-40 max-w-[1600px] mx-auto">
                 <motion.div
                     layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[300px] gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[350px] gap-8"
                 >
-                    <AnimatePresence>
+                    <AnimatePresence mode="popLayout">
                         {filteredItems.map((item, idx) => (
                             <motion.div
                                 layout
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.4 }}
-                                key={idx} // Using index as simple key for static list, ideally use unique ID
-                                className={`relative rounded-[32px] overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 border border-[#d4af37]/10
+                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                key={`${item.title}-${idx}`}
+                                className={`relative rounded-[60px] overflow-hidden group cursor-pointer shadow-sm hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-700 border-8 border-white bg-slate-50
                                     ${item.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''}
                                     ${item.size === 'wide' ? 'md:col-span-2' : ''}
                                     ${item.size === 'tall' ? 'md:row-span-2' : ''}
@@ -134,11 +136,12 @@ const GalleryPage = () => {
                                             className="w-full h-full object-cover"
                                             muted
                                             loop
+                                            playsInline
                                             onMouseOver={e => e.currentTarget.play()}
                                             onMouseOut={e => e.currentTarget.pause()}
                                         />
-                                        <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-                                            <Play size={16} fill="white" className="text-white ml-1" />
+                                        <div className="absolute top-8 right-8 w-14 h-14 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/30 shadow-lg">
+                                            <Play size={20} fill="white" className="text-white ml-1" />
                                         </div>
                                     </div>
                                 ) : (
@@ -146,18 +149,18 @@ const GalleryPage = () => {
                                         <img
                                             src={item.src}
                                             alt={item.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                         />
-                                        <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-                                            <ImageIcon size={16} className="text-white" />
+                                        <div className="absolute top-8 right-8 w-14 h-14 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/30 shadow-lg">
+                                            <ImageIcon size={20} className="text-white" />
                                         </div>
                                     </div>
                                 )}
 
                                 {/* Hover Overlay */}
-                                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-[#1a1612]/90 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                                    <h3 className="text-xl font-serif text-white italic">{item.title}</h3>
-                                    <p className="text-white/60 text-xs uppercase tracking-wider mt-1">{categories.find(c => c.id === item.category)?.label}</p>
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
+                                    <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{categories.find(c => c.id === item.category)?.label}</p>
+                                    <h3 className="text-3xl font-serif text-white italic leading-tight">{item.title}</h3>
                                 </div>
                             </motion.div>
                         ))}
@@ -172,17 +175,17 @@ const GalleryPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
                         onClick={() => setSelectedMedia(null)}
                     >
                         <button
-                            className="absolute top-8 right-8 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+                            className="absolute top-10 right-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white hover:bg-white hover:text-slate-950 transition-all duration-500 group border border-white/10"
                             onClick={() => setSelectedMedia(null)}
                         >
-                            <X size={24} />
+                            <X size={32} className="group-hover:rotate-90 transition-transform duration-500" />
                         </button>
 
-                        <div className="relative w-full max-w-6xl max-h-[85vh] aspect-video rounded-3xl overflow-hidden border border-white/10 bg-black" onClick={e => e.stopPropagation()}>
+                        <div className="relative w-full max-w-[1400px] max-h-[80vh] aspect-video rounded-[60px] overflow-hidden border-[12px] border-white/10 bg-slate-950 shadow-2xl" onClick={e => e.stopPropagation()}>
                             {selectedMedia.type === 'video' ? (
                                 <video
                                     src={selectedMedia.src}
@@ -197,8 +200,9 @@ const GalleryPage = () => {
                                     className="w-full h-full object-contain"
                                 />
                             )}
-                            <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                                <h3 className="text-2xl font-serif italic text-white">{selectedMedia.title}</h3>
+                            <div className="absolute bottom-0 inset-x-0 p-12 bg-gradient-to-t from-slate-900/90 to-transparent">
+                                <p className="text-blue-400 text-xs font-black uppercase tracking-widest mb-3">Viewing Archive</p>
+                                <h3 className="text-4xl font-serif italic text-white leading-none">{selectedMedia.title}</h3>
                             </div>
                         </div>
                     </motion.div>

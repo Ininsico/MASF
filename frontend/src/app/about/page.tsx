@@ -11,50 +11,61 @@ import Footer from '@/components/Footer';
 
 const AboutPage = () => {
     return (
-        <div className="min-h-screen pt-24 bg-[#fdf8f0] text-[#1a1612] font-jakarta">
+        <div className="min-h-screen pt-24 bg-white text-slate-900 font-jakarta">
             {/* Editorial Hero Section */}
-            <section className="relative min-h-[90vh] w-full flex items-center bg-[#fdf8f0] overflow-hidden -mt-24 pt-24">
-                <div className="max-w-[1400px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <section className="relative min-h-[90vh] w-full flex items-center bg-white overflow-hidden -mt-24 pt-24">
+                <div className="max-w-[1400px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
                     {/* Left: Typography */}
-                    <div className="relative z-20 space-y-8">
+                    <div className="relative z-20 space-y-10">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="flex items-center gap-4"
+                            className="flex items-center gap-6"
                         >
-                            <div className="h-[1px] w-20 bg-[#d4af37]" />
-                            <span className="text-[#d4af37] font-bold uppercase tracking-[0.2em] text-sm">Est. 2018</span>
+                            <div className="h-[1px] w-24 bg-blue-600" />
+                            <span className="text-blue-600 font-bold uppercase tracking-[0.3em] text-xs">Since 2018</span>
                         </motion.div>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}
-                            className="text-6xl md:text-8xl lg:text-[7rem] font-serif text-[#1a1612] leading-tight whitespace-nowrap"
+                            className="text-7xl md:text-9xl lg:text-[10rem] font-serif text-slate-900 italic leading-[0.8] tracking-tighter"
                         >
-                            We Are <span className="italic text-[#d4af37]">MASF</span>
+                            We Are <br />
+                            <span className="text-blue-600 not-italic uppercase font-sans font-black">MASF</span>
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: 0.4 }}
-                            className="text-xl text-[#1a1612]/70 max-w-lg font-light leading-relaxed font-jakarta"
+                            className="text-2xl text-slate-500 max-w-xl font-light leading-relaxed font-jakarta"
                         >
-                            More than an organization, we are a family. Driven by the belief that every life holds immeasurable value, we bridge the gap between privilege and need.
+                            More than an organization, we are a family. Driven by the belief that every life holds immeasurable value, we bridge the gap between privilege and need across Pakistan.
                         </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                        >
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-12 h-16 font-black text-lg shadow-xl shadow-blue-600/30 transition-all hover:scale-105">
+                                Our Impact Story
+                            </Button>
+                        </motion.div>
                     </div>
 
                     {/* Right: Visual Composition */}
-                    <div className="relative h-[700px] w-full hidden lg:block perspective-1000">
+                    <div className="relative h-[800px] w-full hidden lg:block perspective-1000">
                         {/* Main Image - Center */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.8, rotateY: -10 }}
-                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="absolute top-10 right-20 w-[350px] h-[450px] rounded-[60px] overflow-hidden shadow-2xl border-4 border-white z-20"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[600px] rounded-[100px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(37,99,235,0.2)] border-[12px] border-white z-20"
                         >
                             <img
                                 src="/landingpagepics/Medicalcamp.png"
@@ -68,7 +79,7 @@ const AboutPage = () => {
                             initial={{ opacity: 0, x: -50, y: 50 }}
                             animate={{ opacity: 1, x: 0, y: 0 }}
                             transition={{ duration: 1, delay: 0.3 }}
-                            className="absolute top-0 right-[350px] w-[220px] h-[280px] rounded-[40px] overflow-hidden shadow-xl border-4 border-[#d4af37]/20 z-10"
+                            className="absolute top-10 left-10 w-[240px] h-[320px] rounded-[60px] overflow-hidden shadow-2xl border-8 border-white z-30"
                         >
                             <img
                                 src="/landingpagepics/breastcancer.png"
@@ -82,7 +93,7 @@ const AboutPage = () => {
                             initial={{ opacity: 0, x: 50, y: -50 }}
                             animate={{ opacity: 1, x: 0, y: 0 }}
                             transition={{ duration: 1, delay: 0.4 }}
-                            className="absolute bottom-20 right-0 w-[240px] h-[300px] rounded-[40px] overflow-hidden shadow-xl border-4 border-white z-30 transform rotate-3"
+                            className="absolute bottom-10 right-10 w-[260px] h-[340px] rounded-[60px] overflow-hidden shadow-2xl border-8 border-white z-30 transform rotate-6"
                         >
                             <img
                                 src="/landingpagepics/clothingcampagin.png"
@@ -91,22 +102,8 @@ const AboutPage = () => {
                             />
                         </motion.div>
 
-                        {/* Bottom Left Abstract Shape/Image */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                            className="absolute bottom-40 right-[320px] w-[180px] h-[180px] rounded-full overflow-hidden shadow-lg border border-[#d4af37]/30 z-0 grayscale mix-blend-multiply opacity-70"
-                        >
-                            <img
-                                src="/landingpagepics/worldmentalhealth.png"
-                                alt="Mental Health"
-                                className="w-full h-full object-cover"
-                            />
-                        </motion.div>
-
-                        {/* Gold Circle Accent */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border border-[#d4af37]/10 rounded-full -z-10 animate-[spin_60s_linear_infinite]" />
+                        {/* Background Decoration */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-[120px] -z-10" />
                     </div>
                 </div>
             </section>
