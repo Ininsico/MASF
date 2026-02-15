@@ -32,10 +32,10 @@ const AboutPage = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}
-                            className="text-7xl md:text-9xl lg:text-[10rem] font-serif text-slate-900 italic leading-[0.8] tracking-tighter"
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight"
                         >
                             We Are <br />
-                            <span className="text-blue-600 not-italic uppercase font-sans font-black">MASF</span>
+                            <span className="text-blue-600 uppercase font-black">MASF</span>
                         </motion.h1>
 
                         <motion.p
@@ -52,7 +52,7 @@ const AboutPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
                         >
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-12 h-16 font-black text-lg shadow-xl shadow-blue-600/30 transition-all hover:scale-105">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-8 h-12 font-bold text-base shadow-lg transition-all hover:scale-105">
                                 Our Impact Story
                             </Button>
                         </motion.div>

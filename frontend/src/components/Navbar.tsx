@@ -25,6 +25,7 @@ const Navbar = () => {
         { name: 'Study Guidelines', href: '/study-guidelines' },
         { name: 'Gallery', href: '/gallery' },
         { name: 'Get Involved', href: '/get-involved' },
+        { name: 'Contact', href: '/contact' },
     ];
 
     return (
@@ -51,7 +52,7 @@ const Navbar = () => {
                                 className="object-contain"
                             />
                         </div>
-                        <span className="text-xl md:text-2xl font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors font-serif italic">
+                        <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
                             MASF
                         </span>
                     </Link>
@@ -72,8 +73,8 @@ const Navbar = () => {
                     {/* Controls */}
                     <div className="flex items-center space-x-4">
                         <Link href="/donate">
-                            <Button variant="default" size="sm" className="hidden md:flex bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20 font-bold font-jakarta rounded-full px-6 py-5">
-                                Donate Now <Heart size={16} className="ml-2 fill-white" />
+                            <Button variant="default" size="sm" className="hidden md:flex bg-blue-600 text-white hover:bg-blue-700 font-bold font-jakarta rounded-lg px-6 h-10">
+                                Donate Now
                             </Button>
                         </Link>
                         <button
@@ -97,11 +98,11 @@ const Navbar = () => {
                     >
                         <div className="glass-panel bg-white/95 rounded-[32px] p-8 shadow-2xl border border-blue-100 flex flex-col space-y-6">
                             {navLinks.map((link) => (
-                                <Link onClick={() => setIsOpen(false)} key={link.name} href={link.href} className="text-xl font-bold text-slate-900 hover:text-blue-600 font-serif italic">{link.name}</Link>
+                                <Link onClick={() => setIsOpen(false)} key={link.name} href={link.href} className="text-lg font-medium text-slate-900 hover:text-blue-600">{link.name}</Link>
                             ))}
                             <hr className="border-slate-100" />
                             <Link href="/donate" className="w-full">
-                                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg h-12 font-jakarta rounded-2xl">
+                                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-base h-12 font-jakarta rounded-lg">
                                     Donate Now <Heart size={20} className="ml-2 fill-white" />
                                 </Button>
                             </Link>

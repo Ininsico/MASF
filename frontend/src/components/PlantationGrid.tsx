@@ -15,7 +15,7 @@ const gridImages = [
 
 const PlantationGrid = () => {
     return (
-        <section className="w-full max-w-[1400px] mx-auto py-32 px-6 relative">
+        <section className="w-full max-w-[1400px] mx-auto py-10 px-6 relative">
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ const PlantationGrid = () => {
                 <div className="inline-block px-8 py-2 rounded-full border border-blue-600/20 bg-blue-50 text-blue-600 text-sm font-black uppercase tracking-[0.3em] mb-12 shadow-sm">
                     Green Pakistan
                 </div>
-                <h2 className="text-7xl md:text-9xl lg:text-[10rem] font-serif text-slate-900 italic leading-none tracking-tight">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-none tracking-tight">
                     Green <span className="text-blue-600">Future</span>
                 </h2>
                 <p className="mt-10 text-2xl text-slate-500 font-jakarta max-w-4xl mx-auto leading-relaxed">
@@ -52,7 +52,7 @@ const PlantationGrid = () => {
                         className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <span className="text-white font-serif italic text-3xl">Community Roots</span>
+                        <span className="text-white font-bold text-2xl">Community Roots</span>
                     </div>
                 </motion.div>
 
@@ -95,7 +95,7 @@ const PlantationGrid = () => {
                             className="object-cover transition-transform duration-1000 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span className="text-white font-serif italic text-3xl">Young Hands</span>
+                            <span className="text-white font-bold text-2xl">Young Hands</span>
                         </div>
                     </motion.div>
 
@@ -139,7 +139,7 @@ const PlantationGrid = () => {
                 className="mt-20 flex justify-center"
             >
                 <Link href="/gallery">
-                    <Button size="lg" className="bg-slate-900 text-white hover:bg-blue-600 rounded-full px-16 h-20 text-xl font-serif italic transition-all duration-500 shadow-xl shadow-slate-900/20">
+                    <Button size="lg" className="bg-slate-900 text-white hover:bg-blue-600 rounded-full px-16 h-16 text-lg font-bold transition-all duration-500 shadow-lg">
                         View Full Gallery
                     </Button>
                 </Link>

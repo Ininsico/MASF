@@ -35,31 +35,31 @@ const guides = [
 
 const StudyGuidelinesPage = () => {
     return (
-        <div className="min-h-screen pt-24 bg-white text-slate-900 font-jakarta">
+        <div className="min-h-screen pt-20 bg-white text-slate-900 font-jakarta">
             {/* Hero Section */}
-            <section className="relative px-6 py-32 flex flex-col items-center text-center overflow-hidden bg-white">
+            <section className="relative px-6 py-12 flex flex-col items-center text-center overflow-hidden bg-white">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[120px] -z-10" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-4xl mx-auto space-y-8"
+                    className="max-w-4xl mx-auto space-y-6"
                 >
                     <span className="inline-block px-6 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-600 text-xs font-black uppercase tracking-widest">
                         Student Resource Center
                     </span>
-                    <h1 className="text-6xl md:text-9xl font-serif italic leading-[0.85] tracking-tighter">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight">
                         Academic <span className="text-blue-600">Excellence</span>
                     </h1>
-                    <p className="text-2xl text-slate-500 leading-relaxed font-light max-w-2xl mx-auto">
+                    <p className="text-xl text-slate-500 leading-relaxed font-light max-w-2xl mx-auto">
                         Empowering the next generation of medical professionals with free, high-quality mentorship and global resources.
                     </p>
                 </motion.div>
             </section>
 
             {/* Guides Grid */}
-            <section className="px-6 py-24 max-w-7xl mx-auto">
+            <section className="px-6 py-12 max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {guides.map((guide, idx) => (
                         <motion.div
@@ -75,7 +75,7 @@ const StudyGuidelinesPage = () => {
                             </div>
                             <div className="space-y-4">
                                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">{guide.category}</span>
-                                <h3 className="text-3xl font-serif italic text-slate-900 leading-tight">{guide.title}</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 leading-tight">{guide.title}</h3>
                                 <p className="text-slate-500 leading-relaxed text-lg font-light">
                                     {guide.desc}
                                 </p>

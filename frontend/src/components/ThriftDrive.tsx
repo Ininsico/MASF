@@ -17,11 +17,11 @@ const ThriftDrive = () => {
     const rotateParallax = useTransform(scrollYProgress, [0, 1], [-2, 4]);
 
     return (
-        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-40 px-6 relative overflow-hidden">
+        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative overflow-hidden">
 
             {/* Background Decorative Text */}
             <div className="absolute top-24 left-0 w-full overflow-hidden opacity-[0.05] pointer-events-none select-none">
-                <h3 className="text-[22vw] font-serif italic text-blue-900 whitespace-nowrap leading-none tracking-tighter">
+                <h3 className="text-[15vw] font-bold text-slate-100 whitespace-nowrap leading-none tracking-tight">
                     Impact & Purpose
                 </h3>
             </div>
@@ -45,7 +45,7 @@ const ThriftDrive = () => {
                             <source src="/landingpagepics/trift/triftdrive.mp4" type="video/mp4" />
                         </video>
                         <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-slate-900/60 to-transparent">
-                            <p className="text-white font-serif italic text-3xl">Sustainable Giving</p>
+                            <p className="text-white font-bold text-2xl">Sustainable Giving</p>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@ const ThriftDrive = () => {
                             <div className="w-12 h-[1px] bg-blue-600" />
                             <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-xs font-jakarta">Sustainability Focus</span>
                         </div>
-                        <h2 className="text-6xl md:text-9xl font-serif text-slate-900 italic leading-[0.85] tracking-tighter">
+                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
                             The Thrift <br />
                             <span className="text-blue-600">Drive</span>
                         </h2>
@@ -94,14 +94,14 @@ const ThriftDrive = () => {
                             <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
                                 <ShoppingBag size={28} />
                             </div>
-                            <h4 className="text-4xl font-serif italic text-slate-900 mb-2">500+</h4>
+                            <h4 className="text-3xl font-bold text-slate-900 mb-2">500+</h4>
                             <p className="text-sm font-black font-jakarta text-slate-400 uppercase tracking-widest">Items Curated</p>
                         </div>
                         <div className="bg-slate-50 p-10 rounded-[48px] border border-blue-50 shadow-sm transition-all hover:bg-white hover:shadow-xl hover:shadow-blue-600/5 group">
                             <div className="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-indigo-600/20 group-hover:scale-110 transition-transform">
                                 <Share2 size={28} />
                             </div>
-                            <h4 className="text-4xl font-serif italic text-slate-900 mb-2">100%</h4>
+                            <h4 className="text-3xl font-bold text-slate-900 mb-2">100%</h4>
                             <p className="text-sm font-black font-jakarta text-slate-400 uppercase tracking-widest">Proceeds to Patients</p>
                         </div>
                     </div>

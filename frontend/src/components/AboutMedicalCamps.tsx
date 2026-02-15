@@ -43,7 +43,7 @@ const AboutMedicalCamps = () => {
                                 <div className="h-[1px] w-12 bg-blue-500" />
                                 <span className="text-blue-400 font-black uppercase tracking-[0.3em] text-xs">Legacy of Care</span>
                             </motion.div>
-                            <h2 className="text-5xl md:text-7xl font-serif text-white italic leading-[1.1]">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1]">
                                 Our Medical <br />
                                 <span className="text-blue-500">Milestones</span>
                             </h2>
@@ -80,7 +80,7 @@ const AboutMedicalCamps = () => {
                         <div className="p-10 md:p-14 rounded-[50px] bg-white/5 backdrop-blur-xl border border-white/10 space-y-8 relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl" />
 
-                            <p className="text-2xl font-serif italic text-slate-200 leading-relaxed font-light">
+                            <p className="text-xl font-bold text-slate-200 leading-relaxed">
                                 "We don't just treat symptoms; we restore dignity. Since our inception, MASF has been the bridge for thousands who had lost hope in healthcare."
                             </p>
 

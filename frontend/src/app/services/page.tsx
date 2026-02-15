@@ -43,9 +43,9 @@ const services = [
 
 const ServicesPage = () => {
     return (
-        <div className="min-h-screen pt-24 bg-white text-slate-900 font-jakarta">
+        <div className="min-h-screen pt-20 bg-white text-slate-900 font-jakarta">
             {/* Premium Hero Section */}
-            <section className="relative min-h-[85vh] w-full flex items-center pt-24 overflow-hidden bg-white">
+            <section className="relative min-h-[85vh] w-full flex items-center pt-10 overflow-hidden bg-white">
                 <div className="max-w-[1400px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
                     {/* Left Content */}
@@ -64,7 +64,7 @@ const ServicesPage = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.2 }}
-                            className="text-7xl md:text-9xl font-serif text-slate-900 italic leading-[0.85] tracking-tighter"
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight"
                         >
                             Serving <br />
                             <span className="text-blue-600">Humanity</span>
@@ -109,8 +109,8 @@ const ServicesPage = () => {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                             <div className="absolute bottom-12 left-12 text-white">
-                                <p className="font-serif italic text-4xl leading-tight">Restoring Hope In <br /> Pakistan</p>
-                                <p className="text-sm opacity-80 font-jakarta mt-4 uppercase font-black tracking-widest">On Ground Impact</p>
+                                <p className="font-bold text-3xl leading-tight">Restoring Hope In <br /> Pakistan</p>
+                                <p className="text-sm opacity-80 font-jakarta mt-4 uppercase font-bold tracking-widest">On Ground Impact</p>
                             </div>
                         </motion.div>
 
@@ -127,15 +127,15 @@ const ServicesPage = () => {
             <SpreadingSmiles />
 
             {/* Services Bento Grid */}
-            <section className="px-6 py-40 max-w-7xl mx-auto">
+            <section className="px-6 py-20 max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="text-center mb-24"
+                    className="text-center mb-12"
                 >
-                    <h2 className="text-5xl md:text-8xl font-serif italic text-slate-900 mb-8 leading-tight">Our Core Initiatives</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">Our Core Initiatives</h2>
                     <div className="w-32 h-[2px] bg-blue-600 mx-auto rounded-full" />
                 </motion.div>
 
@@ -156,7 +156,7 @@ const ServicesPage = () => {
                                     </div>
 
                                     <div className="space-y-4 flex-grow">
-                                        <h3 className="text-3xl font-serif italic text-slate-900 leading-tight">
+                                        <h3 className="text-xl font-bold text-slate-900 leading-tight">
                                             {service.title}
                                         </h3>
 
@@ -166,7 +166,7 @@ const ServicesPage = () => {
                                     </div>
 
                                     <div className="pt-6 w-full flex justify-end">
-                                        <span className="text-6xl font-serif font-black italic text-slate-100 group-hover:text-blue-50 transition-colors duration-500">0{idx + 1}</span>
+                                        <span className="text-4xl font-black text-slate-200 group-hover:text-blue-100 transition-colors duration-500">0{idx + 1}</span>
                                     </div>
                                 </div>
                             </motion.div>

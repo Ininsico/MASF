@@ -15,7 +15,7 @@ const FoodCamp = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
     return (
-        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-32 px-6 relative">
+        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative">
 
             {/* Header */}
             <div className="text-center mb-20 relative z-10">
@@ -27,7 +27,7 @@ const FoodCamp = () => {
                 >
                     <Truck size={14} fill="currentColor" /> Ration Drive
                 </motion.div>
-                <h2 className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
                     Food <span className="text-blue-600">Camp</span>
                 </h2>
                 <p className="mt-8 text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed font-jakarta">
@@ -47,7 +47,7 @@ const FoodCamp = () => {
 
                     <div className="relative z-10 space-y-10">
                         <div>
-                            <h3 className="text-4xl font-serif italic text-blue-400 mb-6 leading-tight">Feeding Hope</h3>
+                            <h3 className="text-2xl font-bold text-blue-400 mb-6 leading-tight">Feeding Hope</h3>
                             <p className="text-lg text-slate-400 leading-relaxed font-light font-jakarta">
                                 "If you cannot feed a hundred people, then feed just one." <br /><br />
                                 We believe that no one should sleep hungry. Our dedicated team works tirelessly to identify and support the most vulnerable households, ensuring that help reaches where it is needed most.
@@ -92,7 +92,7 @@ const FoodCamp = () => {
                         <source src="/landingpagepics/FoodCamp.mp4" type="video/mp4" />
                     </video>
                     <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent">
-                        <p className="text-white font-serif italic text-3xl">Direct Impact on Ground</p>
+                        <p className="text-white font-bold text-2xl">Direct Impact on Ground</p>
                     </div>
                 </div>
 

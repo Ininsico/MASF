@@ -68,24 +68,24 @@ const GalleryPage = () => {
         : galleryItems.filter(item => item.category === filter);
 
     return (
-        <div className="min-h-screen pt-24 bg-white text-slate-900 font-jakarta">
+        <div className="min-h-screen pt-20 bg-white text-slate-900 font-jakarta">
 
             {/* Header */}
-            <section className="relative px-6 py-32 flex flex-col items-center text-center overflow-hidden">
+            <section className="relative px-6 py-12 flex flex-col items-center text-center overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] -z-10" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="max-w-4xl mx-auto space-y-8"
+                    className="max-w-4xl mx-auto space-y-6"
                 >
                     <span className="inline-block px-6 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-600 text-xs font-black uppercase tracking-widest">
                         Visual Impact Archive
                     </span>
-                    <h1 className="text-6xl md:text-9xl font-serif italic leading-[0.85] tracking-tighter">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight tracking-tight">
                         Captured <span className="text-blue-600">Moments</span>
                     </h1>
-                    <p className="text-2xl text-slate-500 leading-relaxed font-light max-w-2xl mx-auto">
+                    <p className="text-xl text-slate-500 leading-relaxed font-light max-w-2xl mx-auto">
                         Witness the tangible difference of our collective efforts in healthcare, education, and social welfare across Pakistan.
                     </p>
                 </motion.div>
@@ -108,7 +108,7 @@ const GalleryPage = () => {
             </section>
 
             {/* Gallery Grid */}
-            <section className="px-6 pb-40 max-w-[1600px] mx-auto">
+            <section className="px-6 pb-20 max-w-[1600px] mx-auto">
                 <motion.div
                     layout
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[350px] gap-8"
@@ -160,7 +160,7 @@ const GalleryPage = () => {
                                 {/* Hover Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
                                     <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">{categories.find(c => c.id === item.category)?.label}</p>
-                                    <h3 className="text-3xl font-serif text-white italic leading-tight">{item.title}</h3>
+                                    <h3 className="text-2xl font-bold text-white leading-tight">{item.title}</h3>
                                 </div>
                             </motion.div>
                         ))}
@@ -179,10 +179,13 @@ const GalleryPage = () => {
                         onClick={() => setSelectedMedia(null)}
                     >
                         <button
-                            className="absolute top-10 right-10 w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white hover:bg-white hover:text-slate-950 transition-all duration-500 group border border-white/10"
-                            onClick={() => setSelectedMedia(null)}
+                            className="absolute z-[110] top-4 right-4 md:top-10 md:right-10 w-10 h-10 md:w-16 md:h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white hover:bg-white hover:text-slate-950 transition-all duration-500 group border border-white/10"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedMedia(null);
+                            }}
                         >
-                            <X size={32} className="group-hover:rotate-90 transition-transform duration-500" />
+                            <X size={24} className="group-hover:rotate-90 transition-transform duration-500 md:w-8 md:h-8" />
                         </button>
 
                         <div className="relative w-full max-w-[1400px] max-h-[80vh] aspect-video rounded-[60px] overflow-hidden border-[12px] border-white/10 bg-slate-950 shadow-2xl" onClick={e => e.stopPropagation()}>
@@ -200,9 +203,9 @@ const GalleryPage = () => {
                                     className="w-full h-full object-contain"
                                 />
                             )}
-                            <div className="absolute bottom-0 inset-x-0 p-12 bg-gradient-to-t from-slate-900/90 to-transparent">
+                            <div className="absolute bottom-0 inset-x-0 p-6 md:p-12 bg-gradient-to-t from-slate-900/90 to-transparent">
                                 <p className="text-blue-400 text-xs font-black uppercase tracking-widest mb-3">Viewing Archive</p>
-                                <h3 className="text-4xl font-serif italic text-white leading-none">{selectedMedia.title}</h3>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white leading-none">{selectedMedia.title}</h3>
                             </div>
                         </div>
                     </motion.div>

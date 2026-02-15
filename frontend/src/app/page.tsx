@@ -77,7 +77,7 @@ export default function Home() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="space-y-12"
           >
-            <h1 className="text-4xl md:text-7xl lg:text-[6.5rem] font-bold text-white leading-[1.2] tracking-normal px-4" dir="rtl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight px-4" dir="rtl">
               "کھجور کے ایک ٹکڑے کے ذریعے ہی سہی، <br className="hidden md:block" />
               <span className="text-blue-400">جہنم کی آگ</span> سے بچو۔"
             </h1>
@@ -89,18 +89,18 @@ export default function Home() {
               className="flex flex-col items-center gap-6"
             >
               <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
-              <p className="text-xl md:text-4xl font-serif italic text-blue-100 tracking-wide">
+              <p className="text-xl md:text-2xl font-medium text-blue-100 tracking-wide">
                 Sahih al-Bukhari (1417)
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 pt-12 pb-32 items-center justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 pt-6 pb-16 items-center justify-center">
                 <Link href="/donate" className="w-full sm:w-auto">
-                  <Button className="bg-blue-600 hover:bg-white text-white hover:text-blue-600 rounded-full px-12 h-16 font-black text-lg transition-all hover:scale-105 shadow-2xl shadow-blue-600/40 w-full sm:w-auto border-2 border-blue-600 hover:border-white">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white hover:text-white rounded-lg px-8 h-12 font-bold text-base transition-all hover:scale-105 shadow-lg w-full sm:w-auto">
                     Donate Now
                   </Button>
                 </Link>
                 <Link href="/about" className="w-full sm:w-auto">
-                  <Button className="bg-white/10 hover:bg-white text-white hover:text-slate-950 border-2 border-white/30 hover:border-white backdrop-blur-md rounded-full px-12 h-16 font-black text-lg transition-all hover:scale-105 w-full sm:w-auto">
+                  <Button className="bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-200 rounded-lg px-8 h-12 font-bold text-base transition-all hover:scale-105 w-full sm:w-auto">
                     Our Mission
                   </Button>
                 </Link>
@@ -123,18 +123,18 @@ export default function Home() {
 
 
       {/* Achievements Section - High Impact Overhaul */}
-      <section className="py-24 md:py-48 relative overflow-hidden bg-white">
+      <section className="py-12 md:py-20 relative overflow-hidden bg-white">
         <div className="max-w-[1440px] mx-auto px-6 relative z-10">
           {/* Achievements Grid Area - Full Width */}
-          <div className="w-full space-y-16">
+          <div className="w-full space-y-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-4 mb-20 text-center flex flex-col items-center"
+              className="space-y-4 mb-10 text-center flex flex-col items-center"
             >
               <div className="h-[2px] w-32 bg-blue-600 mb-4" />
-              <h2 className="text-5xl md:text-8xl font-serif text-blue-950 italic leading-none">
+              <h2 className="text-3xl md:text-5xl font-bold text-blue-950 leading-tight">
                 Tangible Milestones
               </h2>
             </motion.div>
@@ -156,7 +156,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
                 <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
                   <div className="text-blue-400 font-black text-xs uppercase tracking-[0.4em]">Resource Distribution</div>
-                  <h3 className="text-4xl md:text-5xl font-serif text-white italic">Ramadan <br /> Dastarkhan</h3>
+                  <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">Ramadan <br /> Dastarkhan</h3>
                   <p className="text-white/60 font-light text-base max-w-xs">Connecting with the spirit of giving by feeding thousands across Pakistan's major urban centers.</p>
                 </div>
               </motion.div>
@@ -173,7 +173,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
                 <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
                   <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.4em]">Eco Restoration</div>
-                  <h3 className="text-4xl md:text-5xl font-serif text-white italic">Green <br /> Pakistan</h3>
+                  <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">Green <br /> Pakistan</h3>
                   <p className="text-white/60 font-light text-base max-w-xs">A nationwide movement to restore Pakistan's green cover, one sapling at a time.</p>
                 </div>
               </motion.div>
@@ -190,7 +190,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
                   <div className="text-blue-400 font-black text-xs uppercase tracking-[0.4em]">Healthcare Mission</div>
-                  <h2 className="text-4xl md:text-5xl font-serif text-white italic leading-tight">Beyond The Clinic</h2>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">Beyond The Clinic</h2>
                   <p className="text-white/70 text-base font-light leading-relaxed max-w-xs">
                     Bringing healthcare to those who need it most. Our free medical and dental camps have served over 25,000+ patients in rural areas.
                   </p>
@@ -207,14 +207,14 @@ export default function Home() {
       </section>
 
       {/* Featured Grids with Modern Spacing */}
-      <section className="space-y-40 py-20">
+      <section className="space-y-16 py-10">
         <PlantationGrid />
         <ThriftDrive />
         <MedicalCamp />
       </section>
 
       {/* Big Impact CTA */}
-      <section className="py-32 px-6 text-center relative">
+      <section className="py-20 px-6 text-center relative">
         <div className="max-w-5xl mx-auto space-y-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -222,7 +222,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h2 className="text-6xl md:text-9xl font-serif text-slate-900 italic tracking-tighter leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-tight">
               Ready to <span className="text-blue-600">Make</span> <br /> a Difference?
             </h2>
             <p className="text-xl text-slate-500 max-w-2xl mx-auto font-jakarta">
@@ -232,8 +232,8 @@ export default function Home() {
 
           <Link href="/donate" className="inline-block">
             <motion.button
-              className="bg-blue-600 text-white px-16 py-8 rounded-full text-2xl font-bold shadow-2xl hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300 font-serif italic"
-              whileHover={{ rotate: 1 }}
+              className="bg-blue-600 text-white px-10 py-4 rounded-lg text-lg font-bold shadow-lg hover:bg-blue-700 hover:scale-105 active:scale-95 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
             >
               Donate Now
             </motion.button>

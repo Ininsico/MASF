@@ -26,7 +26,7 @@ const Footer = () => {
                                 className="object-contain"
                             />
                         </div>
-                        <span className="text-2xl font-serif font-bold italic tracking-tight">MASF</span>
+                        <span className="text-xl font-bold tracking-tight">MASF</span>
                     </div>
                     <div className="flex space-x-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                         {[Facebook, Instagram, Mail].map((Icon, i) => (

@@ -32,7 +32,7 @@ const Recap2024 = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-tight"
+                    className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight"
                 >
                     Recap <span className="text-blue-600">2024</span>
                 </motion.h2>
@@ -70,7 +70,7 @@ const Recap2024 = () => {
                 </video>
 
                 <div className="absolute bottom-12 left-12 z-20 text-white">
-                    <h3 className="text-4xl font-serif italic mb-3">Unstoppable Impact</h3>
+                    <h3 className="text-2xl font-bold mb-3">Unstoppable Impact</h3>
                     <p className="text-slate-200 font-jakarta text-lg font-light tracking-wide">Celebrating our collective achievements on the ground.</p>
                 </div>
             </motion.div>

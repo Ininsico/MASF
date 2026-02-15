@@ -17,7 +17,7 @@ const MedicalCamp = () => {
     const x = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
-        <section ref={sectionRef} className="w-full max-w-[1400px] mx-auto py-32 px-6 relative overflow-hidden">
+        <section ref={sectionRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative overflow-hidden">
 
             {/* Header Area */}
             <div className="text-center mb-20 relative z-10">
@@ -28,9 +28,9 @@ const MedicalCamp = () => {
                 </motion.div>
                 <motion.h2
                     style={{ scale }}
-                    className="text-5xl md:text-7xl lg:text-9xl font-serif text-slate-900 italic leading-[0.9] whitespace-nowrap"
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[0.9] whitespace-nowrap"
                 >
-                    Medical Camp <span className="text-blue-600">2k25</span>
+                    Medical Camp <span className="text-blue-600">2025</span>
                 </motion.h2>
             </div>
 
@@ -39,7 +39,7 @@ const MedicalCamp = () => {
                 {/* Left Side: Long Description */}
                 <div className="lg:col-span-5 lg:sticky lg:top-32 relative z-10">
                     <div className="p-10 md:p-14 rounded-[48px] bg-slate-50 border border-slate-100 shadow-sm">
-                        <h3 className="text-3xl font-serif text-slate-900 mb-8 italic leading-tight">A Day of Healing & Hope in Jhal</h3>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-8 leading-tight">A Day of Healing & Hope in Jhal</h3>
                         <div className="space-y-6 text-slate-600 font-jakarta text-lg leading-relaxed">
                             <p>
                                 In the heart of Jhal, something extraordinary unfolded. Our Medical Camp 2k25 wasn't just about checkups; it was a festival of compassion. Doctors, nurses, and volunteers came together with a singular mission: to serve humanity without boundaries.
@@ -55,9 +55,9 @@ const MedicalCamp = () => {
                         <div className="mt-12 pt-10 border-t border-slate-200">
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white">
-                                    <span className="font-serif italic text-2xl font-bold">"</span>
+                                    <span className="text-2xl font-bold">"</span>
                                 </div>
-                                <p className="font-serif italic text-2xl text-slate-900">Making healthcare a right, not a privilege.</p>
+                                <p className="text-xl font-bold text-slate-900">Making healthcare a right, not a privilege.</p>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ const MedicalCamp = () => {
                             className="object-cover object-bottom transition-transform duration-1000 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex items-end p-12">
-                            <motion.p style={{ x }} className="text-white text-2xl md:text-3xl lg:text-4xl font-serif italic max-w-3xl leading-snug">
+                            <motion.p style={{ x }} className="text-white text-xl md:text-2xl font-bold max-w-3xl leading-snug">
                                 "Providing quality healthcare isn't just a service, it's a promise to our community's future."
                             </motion.p>
                         </div>

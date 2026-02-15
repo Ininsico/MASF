@@ -22,7 +22,7 @@ const OldAgeHomeVisit = () => {
                 <motion.div style={{ opacity }} className="inline-flex items-center gap-2 mb-4 px-6 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-600 text-sm font-black uppercase tracking-widest">
                     <Heart size={14} fill="currentColor" /> Care & Compassion
                 </motion.div>
-                <h2 className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
                     Old Age Home <span className="text-blue-600">Visit</span>
                 </h2>
                 <p className="mt-8 text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed font-jakarta">
@@ -43,7 +43,7 @@ const OldAgeHomeVisit = () => {
 
                     <div className="relative z-10 space-y-10">
                         <div>
-                            <h3 className="text-4xl font-serif italic text-slate-900 mb-6 leading-tight">Moments of Pure Joy</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 mb-6 leading-tight">Moments of Pure Joy</h3>
                             <p className="text-lg text-slate-500 leading-relaxed font-light font-jakarta">
                                 "To care for those who once cared for us is one of the highest honors." <br /><br />
                                 Our visit wasn't just about distributing gifts; it was about being present. We listened to their wisdom, shared laughter, and reminded them that they are cherished members of our society.
@@ -88,7 +88,7 @@ const OldAgeHomeVisit = () => {
                         <source src="/landingpagepics/oldagehome.mp4" type="video/mp4" />
                     </video>
                     <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent">
-                        <p className="text-white font-serif italic text-3xl">A Bond Beyond Words</p>
+                        <p className="text-white font-bold text-2xl">A Bond Beyond Words</p>
                     </div>
                 </div>
 

@@ -15,14 +15,14 @@ const RamadanDastarkhan = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
     return (
-        <section ref={sectionRef} className="w-full max-w-[1400px] mx-auto py-32 px-6 relative overflow-hidden">
+        <section ref={sectionRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative overflow-hidden">
 
             {/* Header */}
             <div className="text-center mb-20 relative z-10">
                 <motion.div style={{ opacity }} className="inline-flex items-center gap-2 mb-4 px-6 py-2 rounded-full border border-blue-100 bg-blue-50 text-blue-600 text-sm font-black uppercase tracking-widest">
                     <Moon size={14} fill="currentColor" /> Annual Tradition
                 </motion.div>
-                <h2 className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
                     Ramadan <span className="text-blue-600">Dastarkhan</span>
                 </h2>
                 <p className="mt-8 text-xl text-slate-500 max-w-2xl mx-auto font-light leading-relaxed font-jakarta">
@@ -50,7 +50,7 @@ const RamadanDastarkhan = () => {
                         <source src="/landingpagepics/Dashtarkhan.mp4" type="video/mp4" />
                     </video>
                     <div className="absolute inset-x-0 bottom-0 p-10 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent">
-                        <p className="text-white font-serif italic text-3xl">Spreading Blessings</p>
+                        <p className="text-white font-bold text-2xl">Spreading Blessings</p>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@ const RamadanDastarkhan = () => {
                 <div className="flex flex-col rounded-[60px] bg-slate-50 text-slate-900 shadow-sm border border-slate-100 relative overflow-hidden h-full">
                     {/* Text Section */}
                     <div className="p-12 md:p-16 relative z-10 flex-shrink-0">
-                        <h3 className="text-4xl font-serif italic text-slate-900 mb-6 leading-tight">Sharing Blessings & Dignity</h3>
+                        <h3 className="text-3xl font-bold text-slate-900 mb-6 leading-tight">Sharing Blessings & Dignity</h3>
                         <p className="text-lg text-slate-500 leading-relaxed font-light font-jakarta mb-10">
                             "The best charity is that given in Ramadan." <br /><br />
                             Our Dastarkhan is a sanctuary of dignity, ensuring no one breaks their fast alone. We serve hundreds of meals daily during the holy month.

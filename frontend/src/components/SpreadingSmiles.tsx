@@ -18,7 +18,7 @@ const SpreadingSmiles = () => {
     ];
 
     return (
-        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-32 px-6 relative overflow-hidden">
+        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative overflow-hidden">
 
             {/* Header */}
             <div className="text-center mb-24 relative z-10">
@@ -30,7 +30,7 @@ const SpreadingSmiles = () => {
                 >
                     <Smile size={14} fill="currentColor" /> Happiness Project
                 </motion.div>
-                <h2 className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
                     Spreading <span className="text-blue-600">Smiles</span>
                 </h2>
                 <p className="mt-8 text-xl text-slate-500 max-w-3xl mx-auto font-light leading-relaxed font-jakarta">
@@ -67,7 +67,7 @@ const SpreadingSmiles = () => {
                             <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-5 border border-white/30 shadow-lg">
                                 <Sparkles size={24} className="text-blue-400" />
                             </div>
-                            <h3 className="text-3xl font-serif italic text-white leading-none">{video.label}</h3>
+                            <h3 className="text-2xl font-bold text-white leading-none">{video.label}</h3>
                             <p className="text-xs text-slate-200 mt-3 font-bold uppercase tracking-widest">Ground Awareness</p>
                         </div>
                     </motion.div>

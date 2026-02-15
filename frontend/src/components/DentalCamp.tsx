@@ -15,7 +15,7 @@ const DentalCamp = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
     return (
-        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-32 px-6 relative">
+        <section ref={containerRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative">
 
             {/* Header */}
             <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
@@ -33,10 +33,10 @@ const DentalCamp = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-8xl font-serif text-slate-900 italic leading-none"
+                        className="text-3xl md:text-5xl font-bold text-slate-900 leading-none"
                     >
                         Dental <span className="text-blue-600">Care</span> <br />
-                        <span className="not-italic font-sans font-light text-2xl uppercase tracking-[0.5em] text-slate-400 align-middle">x</span> UMDC
+                        <span className="font-light text-2xl uppercase tracking-[0.5em] text-slate-400 align-middle">x</span> UMDC
                     </motion.h2>
                 </div>
 
@@ -72,7 +72,7 @@ const DentalCamp = () => {
                         <source src="/landingpagepics/Dentalcamp.mp4" type="video/mp4" />
                     </video>
                     <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent">
-                        <p className="text-white font-serif italic text-3xl">Restoring Every Smile</p>
+                        <p className="text-white font-bold text-2xl">Restoring Every Smile</p>
                     </div>
                 </motion.div>
 
@@ -82,7 +82,7 @@ const DentalCamp = () => {
                     <div className="flex-1 bg-slate-900 rounded-[50px] p-10 text-white flex flex-col justify-center relative overflow-hidden shadow-2xl border border-white/5">
                         <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-[60px]" />
 
-                        <h3 className="text-3xl font-serif italic text-blue-400 mb-6 leading-tight">Expert Treatment</h3>
+                        <h3 className="text-2xl font-bold text-blue-400 mb-6 leading-tight">Expert Treatment</h3>
                         <p className="text-slate-400 font-jakarta leading-relaxed mb-10 text-lg">
                             Doctors from University Medical & Dental College joined hands with MASF to perform procedures and educate rural families.
                         </p>
@@ -101,7 +101,7 @@ const DentalCamp = () => {
                     {/* Light Stat Card */}
                     <div className="h-[220px] bg-blue-600 rounded-[50px] p-10 flex flex-col justify-center items-center text-center relative overflow-hidden group shadow-lg shadow-blue-600/20">
                         <div className="absolute inset-0 bg-white/10 scale-0 group-hover:scale-150 transition-transform duration-1000 rounded-full" />
-                        <h4 className="text-7xl font-serif text-white italic mb-2 relative z-10 leading-none">300+</h4>
+                        <h4 className="text-5xl font-bold text-white mb-2 relative z-10 leading-none">300+</h4>
                         <p className="text-blue-100 font-black font-jakarta uppercase tracking-widest text-xs relative z-10 mt-4">Families Treated</p>
                     </div>
                 </div>
