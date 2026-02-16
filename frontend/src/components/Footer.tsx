@@ -15,18 +15,15 @@ const Footer = () => {
     return (
         <footer className="w-full bg-slate-950 border-t border-white/5 py-12 px-6 text-white">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-                {/* Brand & Social - Simple Layout */}
-                <div className="flex flex-col items-center md:items-start space-y-4">
-                    <div className="flex items-center space-x-3">
-                        <div className="relative w-8 h-8 rounded-lg overflow-hidden bg-white p-0.5">
-                            <Image
-                                src="/MASF.png"
-                                alt="MASF Logo"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-                        <span className="text-xl font-bold tracking-tight">MASF</span>
+                {/* Brand & Social - Horizontal Layout */}
+                <div className="flex items-center gap-6">
+                    <div className="relative w-56 h-18 overflow-hidden">
+                        <Image
+                            src="/bgmasf.png"
+                            alt="MASF Logo"
+                            fill
+                            className="object-contain p-1"
+                        />
                     </div>
                     <div className="flex space-x-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                         {[Facebook, Instagram, Mail].map((Icon, i) => (
@@ -43,7 +40,8 @@ const Footer = () => {
                         { name: 'About', href: '/about' },
                         { name: 'Services', href: '/services' },
                         { name: 'Gallery', href: '/gallery' },
-                        { name: 'Donate', href: '/donate' }
+                        { name: 'Donate', href: '/donate' },
+                        { name: 'Our Developers', href: '/developers' }
                     ].map((item) => (
                         <Link
                             key={item.name}

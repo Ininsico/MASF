@@ -9,14 +9,7 @@ import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
-    const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const navLinks = [
         { name: 'Home', href: '/' },
@@ -29,32 +22,19 @@ const Navbar = () => {
     ];
 
     return (
-        <nav
-            className={cn(
-                "fixed top-0 w-full z-[100] transition-all duration-500",
-                scrolled ? "py-4" : "py-6"
-            )}
-        >
+        <nav className="fixed top-0 w-full z-[100] py-4">
             <div className="max-w-7xl mx-auto px-6">
-                <div
-                    className={cn(
-                        "relative flex justify-between items-center px-8 py-3 rounded-[32px] transition-all duration-500",
-                        scrolled ? "glass-nav shadow-lg border-blue-100" : "bg-transparent"
-                    )}
-                >
+                <div className="relative flex justify-between items-center px-8 py-3 rounded-[32px] bg-white/95 backdrop-blur-sm shadow-md border border-slate-200">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-4 group">
-                        <div className="relative w-12 h-12 rounded-2xl overflow-hidden group-hover:scale-105 transition-transform shadow-lg shadow-blue-500/10 border border-blue-100 bg-white p-1">
+                    <Link href="/" className="flex items-center group">
+                        <div className="relative w-56 h-18 overflow-hidden group-hover:scale-105 transition-transform">
                             <Image
-                                src="/MASF.png"
+                                src="/bgmasf.png"
                                 alt="MASF Logo"
                                 fill
-                                className="object-contain"
+                                className="object-contain p-2"
                             />
                         </div>
-                        <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
-                            MASF
-                        </span>
                     </Link>
 
                     {/* Desktop Links */}
@@ -71,7 +51,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Controls */}
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4 z-[100]">
                         <Link href="/donate">
                             <Button variant="default" size="sm" className="hidden md:flex bg-blue-600 text-white hover:bg-blue-700 font-bold font-jakarta rounded-lg px-6 h-10">
                                 Donate Now
@@ -91,21 +71,42 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                        className="lg:hidden absolute top-full left-0 w-full p-6 pt-2"
+                        initial={{ opacity: 0, scale: 0.95, y: -20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="lg:hidden absolute top-0 left-0 w-full min-h-screen bg-white/95 backdrop-blur-3xl z-[90] flex flex-col pt-32 px-6"
                     >
-                        <div className="glass-panel bg-white/95 rounded-[32px] p-8 shadow-2xl border border-blue-100 flex flex-col space-y-6">
-                            {navLinks.map((link) => (
-                                <Link onClick={() => setIsOpen(false)} key={link.name} href={link.href} className="text-lg font-medium text-slate-900 hover:text-blue-600">{link.name}</Link>
+                        <div className="flex flex-col items-center space-y-6 text-center">
+                            {navLinks.map((link, i) => (
+                                <motion.div
+                                    key={link.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.05 + 0.1 }}
+                                >
+                                    <Link
+                                        onClick={() => setIsOpen(false)}
+                                        href={link.href}
+                                        className="text-2xl font-bold text-slate-800 hover:text-blue-600 transition-colors block py-2"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </motion.div>
                             ))}
-                            <hr className="border-slate-100" />
-                            <Link href="/donate" className="w-full">
-                                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-base h-12 font-jakarta rounded-lg">
-                                    Donate Now <Heart size={20} className="ml-2 fill-white" />
-                                </Button>
-                            </Link>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                                className="w-full max-w-xs pt-8"
+                            >
+                                <Link href="/donate" onClick={() => setIsOpen(false)}>
+                                    <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg h-14 rounded-2xl shadow-xl shadow-blue-500/20">
+                                        Donate Now <Heart size={20} className="ml-2 fill-white" />
+                                    </Button>
+                                </Link>
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}
