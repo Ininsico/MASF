@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const axios = require('axios');
 
 exports.sendContactEmail = async (req, res) => {
     console.log('📩 Contact form submission received');
@@ -7,32 +7,17 @@ exports.sendContactEmail = async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
 
-        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-            console.error('❌ Email credentials are missing in .env file');
+        if (!process.env.MAILEROO_API_KEY) {
+            console.error('❌ Maileroo API Key is missing in .env file');
             return res.status(500).json({
-                message: 'Server configuration error: Email credentials not set',
-                error: 'Missing EMAIL_USER or EMAIL_PASS'
+                message: 'Server configuration error: Maileroo API Key not set',
+                error: 'Missing MAILEROO_API_KEY'
             });
         }
 
-        console.log('✅ Email credentials found');
-        console.log('📧 Sending from:', process.env.EMAIL_USER);
-
-        // Create transporter
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-            logger: true,
-            debug: true
-        });
-
-        // Verify transporter configuration
-        console.log('🔍 Verifying SMTP connection...');
-        await transporter.verify();
-        console.log('✅ SMTP connection verified');
+        const senderEmail = process.env.SENDER_EMAIL || 'masfpk@gmail.com';
+        console.log('✅ Maileroo configuration found');
+        console.log('📧 Sending from:', senderEmail);
 
         const emailTemplate = (isAdmin = false) => `
 <!DOCTYPE html>
@@ -182,44 +167,57 @@ exports.sendContactEmail = async (req, res) => {
 </html>
         `;
 
+        const sendMailerooEmail = async (to, subject, htmlContent, replyTo) => {
+            const payload = {
+                from: senderEmail,
+                to: to,
+                subject: subject,
+                html: htmlContent,
+                reply_to: replyTo
+            };
+
+            await axios.post('https://api.maileroo.com/v1/emails', payload, {
+                headers: {
+                    'Authorization': `Bearer ${process.env.MAILEROO_API_KEY}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+        };
+
         // Email to Admin
-        const mailOptionsAdmin = {
-            from: `"MASF Contact System" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
-            replyTo: `"${name}" <${email}>`,
-            subject: `🔔 New Contact Inquiry: ${subject}`,
-            html: emailTemplate(true)
-        };
-
-        // Confirmation Email to User
-        const mailOptionsUser = {
-            from: `"MASF - Medical & Social Family" <${process.env.EMAIL_USER}>`,
-            to: email,
-            subject: `Thank you for contacting MASF - We received your message`,
-            html: emailTemplate(false)
-        };
-
         console.log('📤 Sending admin notification email...');
-        await transporter.sendMail(mailOptionsAdmin);
+        await sendMailerooEmail(
+            senderEmail, // Send to self (admin)
+            `🔔 New Contact Inquiry: ${subject}`,
+            emailTemplate(true),
+            email // Reply to user
+        );
         console.log('✅ Admin email sent successfully');
 
+        // Confirmation Email to User
         console.log('📤 Sending user confirmation email...');
-        await transporter.sendMail(mailOptionsUser);
+        await sendMailerooEmail(
+            email,
+            `Thank you for contacting MASF - We received your message`,
+            emailTemplate(false)
+        );
         console.log('✅ User confirmation email sent successfully');
 
         res.status(200).json({ message: 'Message sent successfully' });
 
     } catch (error) {
         console.error('❌ Email sending failed:');
-        console.error('Error name:', error.name);
         console.error('Error message:', error.message);
-        console.error('Error code:', error.code);
-        console.error('Full error:', error);
+        if (error.response) {
+            console.error('Response data:', error.response.data);
+            console.error('Response status:', error.response.status);
+        }
 
         res.status(500).json({
             message: 'Failed to send message',
             error: error.message,
-            code: error.code
+            details: error.response ? error.response.data : null
         });
     }
 };
+
