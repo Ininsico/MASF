@@ -22,12 +22,12 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-[100] py-4">
+        <nav className="fixed top-0 w-full z-[9999] py-4">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="relative flex justify-between items-center px-8 py-3 rounded-[32px] bg-white/95 backdrop-blur-sm shadow-md border border-slate-200">
                     {/* Logo */}
                     <Link href="/" className="flex items-center group">
-                        <div className="relative w-56 h-18 overflow-hidden group-hover:scale-105 transition-transform">
+                        <div className="relative w-48 h-14 md:w-56 md:h-16 overflow-hidden group-hover:scale-105 transition-transform">
                             <Image
                                 src="/bgmasf.png"
                                 alt="MASF Logo"
@@ -75,9 +75,10 @@ const Navbar = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="lg:hidden absolute top-0 left-0 w-full min-h-screen bg-white/95 backdrop-blur-3xl z-[90] flex flex-col pt-32 px-6"
+                        className="lg:hidden fixed inset-0 w-full h-screen bg-white z-[9998] flex flex-col pt-24 px-6 overflow-y-auto"
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="flex flex-col items-center space-y-6 text-center">
+                        <div className="flex flex-col items-center space-y-4 text-center w-full max-w-md mx-auto">
                             {navLinks.map((link, i) => (
                                 <motion.div
                                     key={link.name}
@@ -88,7 +89,7 @@ const Navbar = () => {
                                     <Link
                                         onClick={() => setIsOpen(false)}
                                         href={link.href}
-                                        className="text-2xl font-bold text-slate-800 hover:text-blue-600 transition-colors block py-2"
+                                        className="text-xl font-bold text-slate-800 hover:text-blue-600 active:text-blue-700 transition-colors block py-3 px-4 -mx-4 rounded-lg hover:bg-blue-50 active:bg-blue-100"
                                     >
                                         {link.name}
                                     </Link>

@@ -17,7 +17,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
                 {/* Brand & Social - Horizontal Layout */}
                 <div className="flex items-center gap-6">
-                    <div className="relative w-56 h-18 overflow-hidden">
+                    <div className="relative w-48 h-14 md:w-56 md:h-16 overflow-hidden">
                         <Image
                             src="/bgmasf.png"
                             alt="MASF Logo"
