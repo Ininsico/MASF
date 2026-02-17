@@ -59,7 +59,8 @@ const DonatePage = () => {
             formDataToSend.append('amount', formData.amount);
             formDataToSend.append('screenshot', screenshot);
 
-            const response = await fetch('http://localhost:5000/api/donation', {
+            // const response = await fetch('http://localhost:5000/api/donation', {
+            const response = await fetch('https://masf.onrender.com/api/donation', {
                 method: 'POST',
                 body: formDataToSend,
             });
@@ -267,10 +268,10 @@ const DonatePage = () => {
                             type="submit"
                             disabled={status === 'submitting'}
                             className={`w-full h-14 font-bold rounded-xl mt-4 uppercase text-sm tracking-wide transition-all ${status === 'submitting'
-                                    ? 'bg-slate-400 cursor-not-allowed'
-                                    : status === 'success'
-                                        ? 'bg-green-600 hover:bg-green-700'
-                                        : 'bg-slate-900 hover:bg-blue-600'
+                                ? 'bg-slate-400 cursor-not-allowed'
+                                : status === 'success'
+                                    ? 'bg-green-600 hover:bg-green-700'
+                                    : 'bg-slate-900 hover:bg-blue-600'
                                 } text-white`}
                         >
                             {status === 'submitting'
