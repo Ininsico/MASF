@@ -21,6 +21,7 @@ import PlantationGrid from '@/components/PlantationGrid';
 import ThriftDrive from '@/components/ThriftDrive';
 import MedicalCamp from '@/components/MedicalCamp';
 import Footer from '@/components/Footer';
+import AnnouncementPopup from '@/components/AnnouncementPopup';
 
 
 
@@ -54,6 +55,7 @@ export default function HomeView() {
 
     return (
         <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
+            <AnnouncementPopup />
 
             {/* Hero Section */}
             <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-32 pb-20">
