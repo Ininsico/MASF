@@ -49,7 +49,6 @@ const PlantationGrid = () => {
                         src={gridImages[0]}
                         alt="Plantation"
                         fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -93,7 +92,6 @@ const PlantationGrid = () => {
                             src={gridImages[1]}
                             alt="Plantation Event"
                             fill
-                            sizes="(max-width: 768px) 100vw, 33vw"
                             className="object-cover transition-transform duration-1000 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-10 opacity-0 group-hover:opacity-100 transition-all duration-500">
@@ -113,7 +111,6 @@ const PlantationGrid = () => {
                                 src={gridImages[2]}
                                 alt="Plantation Grid"
                                 fill
-                                sizes="(max-width: 768px) 100vw, 33vw"
                                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
                         </motion.div>
@@ -128,7 +125,6 @@ const PlantationGrid = () => {
                                 src={gridImages[3]}
                                 alt="Plantation Grid"
                                 fill
-                                sizes="(max-width: 768px) 100vw, 33vw"
                                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
                         </motion.div>
