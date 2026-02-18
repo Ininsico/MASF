@@ -1,8 +1,6 @@
 const { Resend } = require('resend');
 
 exports.sendContactEmail = async (req, res) => {
-    console.log('📩 Contact form submission received');
-    console.log('Body:', req.body);
 
     try {
         const { name, email, subject, message } = req.body;
@@ -17,8 +15,6 @@ exports.sendContactEmail = async (req, res) => {
 
         const resend = new Resend(process.env.RESEND_API_KEY);
         const senderEmail = process.env.SENDER_EMAIL || 'noreply@masfpakistan.org';
-        console.log('✅ Resend configuration found');
-        console.log('📧 Sending from:', senderEmail);
 
         const emailTemplate = (isAdmin = false) => `
 <!DOCTYPE html>
@@ -184,7 +180,6 @@ exports.sendContactEmail = async (req, res) => {
         };
 
         // Email to Admin
-        console.log('📤 Sending admin notification email...');
         const adminEmail = process.env.ADMIN_EMAIL || 'masfpk@gmail.com';
         await sendEmail(
             adminEmail,
@@ -192,16 +187,15 @@ exports.sendContactEmail = async (req, res) => {
             emailTemplate(true),
             email // Reply to user
         );
-        console.log('✅ Admin email sent successfully');
+        // Confirmation Email to User
 
         // Confirmation Email to User
-        console.log('📤 Sending user confirmation email...');
+        // Confirmation Email to User
         await sendEmail(
             email,
             `Thank you for contacting MASF - We received your message`,
             emailTemplate(false)
         );
-        console.log('✅ User confirmation email sent successfully');
 
         res.status(200).json({ message: 'Message sent successfully' });
 

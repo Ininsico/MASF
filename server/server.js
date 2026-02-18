@@ -22,7 +22,4 @@ app.get('/', (req, res) => {
 
 // Start Server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`📧 Email configured: ${process.env.EMAIL_USER || 'NOT SET'}`);
-    console.log(`✅ Backend ready at http://localhost:${PORT}`);
 });

@@ -26,11 +26,15 @@ const Footer = () => {
                         />
                     </div>
                     <div className="flex space-x-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                        {[Facebook, Instagram, Mail].map((Icon, i) => (
-                            <a key={i} href="#" className="hover:text-blue-500 transition-colors">
-                                <Icon size={18} />
-                            </a>
-                        ))}
+                        <a href="https://www.facebook.com/masf.afmdc" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">
+                            <Facebook size={18} />
+                        </a>
+                        <a href="https://www.instagram.com/masf.pakistan/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">
+                            <Instagram size={18} />
+                        </a>
+                        <a href="mailto:masfpk@gmail.com" className="hover:text-blue-500 transition-colors">
+                            <Mail size={18} />
+                        </a>
                     </div>
                 </div>
 

@@ -42,9 +42,6 @@ exports.submitDonation = (req, res) => {
             return res.status(400).json({ message: err.message });
         }
 
-        console.log('📩 Donation submission received');
-        console.log('Request body:', req.body);
-        console.log('Uploaded file:', req.file);
 
         try {
             const { name, whatsapp, accountUsed, amount } = req.body;
@@ -68,8 +65,6 @@ exports.submitDonation = (req, res) => {
                 });
             }
 
-            console.log('✅ All validations passed');
-            console.log('📧 Preparing email...');
 
             const resend = new Resend(process.env.RESEND_API_KEY);
             const senderEmail = process.env.SENDER_EMAIL || 'noreply@masfpakistan.org';
@@ -233,7 +228,7 @@ exports.submitDonation = (req, res) => {
             `;
 
             // Email to Admin with attachment
-            console.log('📤 Sending email to admin...');
+            // Email to Admin with attachment
 
             // Read file content for attachment
             const fileContent = fs.readFileSync(req.file.path);
@@ -255,11 +250,9 @@ exports.submitDonation = (req, res) => {
                 console.error('Error sending email:', error);
                 throw new Error(error.message);
             }
-            console.log('✅ Email sent successfully');
 
             // Clean up uploaded file after sending email
             fs.unlinkSync(req.file.path);
-            console.log('🗑️ Temporary file cleaned up');
 
             res.status(200).json({
                 message: 'Donation submitted successfully! You will receive a receipt on WhatsApp shortly.',

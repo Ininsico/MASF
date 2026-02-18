@@ -59,7 +59,7 @@ const DonatePage = () => {
             formDataToSend.append('amount', formData.amount);
             formDataToSend.append('screenshot', screenshot);
 
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL; // || 'http://localhost:5000';
             const response = await fetch(`${apiUrl}/api/donation`, {
                 method: 'POST',
                 body: formDataToSend,
@@ -73,12 +73,10 @@ const DonatePage = () => {
                 setTimeout(() => setStatus('idle'), 5000);
             } else {
                 const errorData = await response.json();
-                console.error('Server error:', errorData);
                 setStatus('error');
                 setTimeout(() => setStatus('idle'), 3000);
             }
         } catch (error) {
-            console.error('Submission failed:', error);
             setStatus('error');
             setTimeout(() => setStatus('idle'), 3000);
         }
@@ -294,7 +292,7 @@ const DonatePage = () => {
                         )}
 
                         <div className="bg-green-50 text-green-700 text-xs p-4 rounded-xl text-center">
-                            You will receive a receipt (raseed) from the Finance Secretary on WhatsApp from the number: 0335-4014014.
+                            You will receive a receipt (raseed) from the Finance Secretary on WhatsApp from the number: 0335-6238125.
                         </div>
                     </form>
                 </div>

@@ -25,7 +25,7 @@ const ContactPage = () => {
         setStatus('sending');
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL; // || 'http://localhost:5000';
             const response = await fetch(`${apiUrl}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -38,13 +38,11 @@ const ContactPage = () => {
                 setTimeout(() => setStatus('idle'), 3000);
             } else {
                 const errorData = await response.json();
-                console.error('Server responded with error:', errorData);
                 setStatus('error');
                 // You might want to set a state for the specific error message to show to the user
                 // setErrorMessage(errorData.message || 'Something went wrong');
             }
         } catch (error) {
-            console.error('Submission failed - Network or Code Error:', error);
             setStatus('error');
         }
     };

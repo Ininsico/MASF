@@ -15,8 +15,12 @@ const jakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "MASF - ParkiTrack",
-  description: "Advanced Parkinson's Tracking System",
+  title: "MASF - Medical & Social Family",
+  description: "Official website of Medical & Social Family (MASF)",
+  icons: {
+    icon: "/fav512.png", // Using the existing logo image as favicon
+    apple: "/fav512.png",
+  },
 };
 
 export default function RootLayout({
