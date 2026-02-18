@@ -94,6 +94,7 @@ const MedicalCamp = () => {
                             src="/landingpagepics/Medicalcamp.png"
                             alt="Medical Camp Team"
                             fill
+                            sizes="(max-width: 1024px) 100vw, 60vw"
                             className="object-cover object-bottom transition-transform duration-1000 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex items-end p-12">

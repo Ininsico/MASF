@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
@@ -32,6 +32,8 @@ const Navbar = () => {
                                 src="/bgmasf.png"
                                 alt="MASF Logo"
                                 fill
+                                priority={true}
+                                sizes="(max-width: 768px) 144px, 224px"
                                 className="object-contain p-1 md:p-2"
                             />
                         </div>
@@ -104,7 +106,7 @@ const Navbar = () => {
                             >
                                 <Link href="/donate" onClick={() => setIsOpen(false)}>
                                     <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg h-14 rounded-2xl shadow-xl shadow-blue-500/20">
-                                        Donate Now <Heart size={20} className="ml-2 fill-white" />
+                                        Donate Now
                                     </Button>
                                 </Link>
                             </motion.div>

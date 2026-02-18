@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import NextImage from 'next/image';
 import {
   Heart,
   Handshake,
@@ -169,7 +170,13 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="group relative h-[400px] md:h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
               >
-                <img src="/landingpagepics/plantation/plantation3.png" alt="Green Pakistan" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90" />
+                <NextImage
+                  src="/landingpagepics/plantation/plantation3.png"
+                  alt="Green Pakistan"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
                 <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
                   <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.4em]">Eco Restoration</div>
@@ -186,7 +193,13 @@ export default function Home() {
                 transition={{ delay: 0.4 }}
                 className="group relative h-[400px] md:h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
               >
-                <img src="/landingpagepics/Medicalcamp.png" alt="Medical Camp" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-70" />
+                <NextImage
+                  src="/landingpagepics/Medicalcamp.png"
+                  alt="Medical Camp"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-1000 opacity-70"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                 <div className="absolute inset-0 p-12 flex flex-col justify-end space-y-4">
                   <div className="text-blue-400 font-black text-xs uppercase tracking-[0.4em]">Healthcare Mission</div>

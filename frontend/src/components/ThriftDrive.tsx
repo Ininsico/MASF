@@ -58,6 +58,7 @@ const ThriftDrive = () => {
                             src="/landingpagepics/trift/trift.png"
                             alt="Thrift Drive Event"
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover transition-transform duration-1000 hover:scale-110"
                         />
                     </motion.div>

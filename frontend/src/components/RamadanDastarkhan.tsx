@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Moon, Utensils, HeartHandshake } from 'lucide-react';
+import Image from 'next/image';
 
 const RamadanDastarkhan = () => {
     const sectionRef = useRef(null);
@@ -72,10 +73,12 @@ const RamadanDastarkhan = () => {
 
                     {/* Image Section */}
                     <div className="relative flex-grow w-full min-h-[300px] mt-auto">
-                        <img
+                        <Image
                             src="/landingpagepics/Dastarkhan.png"
                             alt="Ramadan Iftar Gathering"
-                            className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover grayscale-[0.2] transition-transform duration-700 hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-40" />
                     </div>
