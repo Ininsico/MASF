@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/Button';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const ContactPage = () => {
 
@@ -37,12 +37,12 @@ const ContactPage = () => {
                 setFormData({ name: '', email: '', subject: '', message: '' });
                 setTimeout(() => setStatus('idle'), 3000);
             } else {
-                const errorData = await response.json();
+                await response.json();
                 setStatus('error');
                 // You might want to set a state for the specific error message to show to the user
                 // setErrorMessage(errorData.message || 'Something went wrong');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };
@@ -56,10 +56,10 @@ const ContactPage = () => {
                         Get In Touch
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                        We're Here to Help
+                        We&apos;re Here to Help
                     </h1>
                     <p className="text-slate-500 text-lg leading-relaxed max-w-2xl mx-auto">
-                        Have questions or want to get involved? Reach out to us and we'll get back to you as soon as possible.
+                        Have questions or want to get involved? Reach out to us and we&apos;ll get back to you as soon as possible.
                     </p>
                 </div>
             </section>
@@ -107,7 +107,7 @@ const ContactPage = () => {
                     <div className="col-span-1 md:col-span-2 bg-white rounded-[40px] shadow-xl border border-slate-100 p-8 md:p-12">
                         <div className="mb-8">
                             <h2 className="text-2xl font-bold text-slate-900">Send us a Message</h2>
-                            <p className="text-slate-500 text-sm mt-2">Fill out the form below and we'll respond within 24 hours.</p>
+                            <p className="text-slate-500 text-sm mt-2">Fill out the form below and we&apos;ll respond within 24 hours.</p>
                         </div>
 
                         <form className="space-y-6" onSubmit={handleSubmit}>

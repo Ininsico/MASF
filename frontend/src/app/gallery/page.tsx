@@ -146,10 +146,11 @@ const GalleryPage = () => {
                                     </div>
                                 ) : (
                                     <div className="relative w-full h-full">
-                                        <img
+                                        <Image
                                             src={item.src}
                                             alt={item.title}
-                                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                            fill
+                                            className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                         />
                                         <div className="absolute top-8 right-8 w-14 h-14 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center border border-white/30 shadow-lg">
                                             <ImageIcon size={20} className="text-white" />
@@ -197,10 +198,11 @@ const GalleryPage = () => {
                                     autoPlay
                                 />
                             ) : (
-                                <img
+                                <Image
                                     src={selectedMedia.src}
                                     alt={selectedMedia.title}
-                                    className="w-full h-full object-contain"
+                                    fill
+                                    className="object-contain"
                                 />
                             )}
                             <div className="absolute bottom-0 inset-x-0 p-6 md:p-12 bg-gradient-to-t from-slate-900/90 to-transparent">

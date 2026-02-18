@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Smile, Heart, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Smile, Sparkles } from 'lucide-react';
 
 const SpreadingSmiles = () => {
     const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
+    // const { scrollYProgress } = useScroll({
+    //     target: containerRef,
+    //     offset: ["start end", "end start"]
+    // });
 
     const videos = [
         { src: "/landingpagepics/spreadingsmiles.mp4", label: "Pure Joy" },

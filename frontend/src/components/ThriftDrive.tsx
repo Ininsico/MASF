@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
+
 import { Share2, ShoppingBag } from 'lucide-react';
 
 const ThriftDrive = () => {

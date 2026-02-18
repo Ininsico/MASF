@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Moon, Utensils, HeartHandshake } from 'lucide-react';
+import { Moon, Utensils } from 'lucide-react';
 
 const RamadanDastarkhan = () => {
     const sectionRef = useRef(null);
@@ -60,7 +61,7 @@ const RamadanDastarkhan = () => {
                     <div className="p-12 md:p-16 relative z-10 flex-shrink-0">
                         <h3 className="text-3xl font-bold text-slate-900 mb-6 leading-tight">Sharing Blessings & Dignity</h3>
                         <p className="text-lg text-slate-500 leading-relaxed font-light font-jakarta mb-10">
-                            "The best charity is that given in Ramadan." <br /><br />
+                            &quot;The best charity is that given in Ramadan.&quot; <br /><br />
                             Our Dastarkhan is a sanctuary of dignity, ensuring no one breaks their fast alone. We serve hundreds of meals daily during the holy month.
                         </p>
 
@@ -72,10 +73,11 @@ const RamadanDastarkhan = () => {
 
                     {/* Image Section */}
                     <div className="relative flex-grow w-full min-h-[300px] mt-auto">
-                        <img
+                        <Image
                             src="/landingpagepics/Dastarkhan.png"
                             alt="Ramadan Iftar Gathering"
-                            className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-transform duration-700 hover:scale-105"
+                            fill
+                            className="object-cover grayscale-[0.2] transition-transform duration-700 hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-40" />
                     </div>

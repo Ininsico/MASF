@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';
 import DentalCamp from '@/components/DentalCamp';
@@ -102,10 +103,11 @@ const ServicesPage = () => {
                             transition={{ duration: 1.2, ease: "easeOut" }}
                             className="absolute top-0 right-0 w-full h-full rounded-[80px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(37,99,235,0.15)] border-[12px] border-white z-10 bg-slate-100"
                         >
-                            <img
+                            <Image
                                 src="/landingpagepics/COMBOpic.png"
                                 alt="Flood Relief Efforts"
-                                className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
+                                fill
+                                className="object-cover transition-transform duration-1000 hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                             <div className="absolute bottom-12 left-12 text-white">

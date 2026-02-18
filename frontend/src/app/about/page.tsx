@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import RamadanDastarkhan from '@/components/RamadanDastarkhan';
@@ -67,10 +68,11 @@ const AboutPage = () => {
                             transition={{ duration: 1.2, ease: "easeOut" }}
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[600px] rounded-[100px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(37,99,235,0.2)] border-[12px] border-white z-20"
                         >
-                            <img
+                            <Image
                                 src="/landingpagepics/Medicalcamp.png"
                                 alt="Medical Camp"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                             />
                         </motion.div>
 
@@ -81,10 +83,11 @@ const AboutPage = () => {
                             transition={{ duration: 1, delay: 0.3 }}
                             className="absolute top-10 left-10 w-[240px] h-[320px] rounded-[60px] overflow-hidden shadow-2xl border-8 border-white z-30"
                         >
-                            <img
+                            <Image
                                 src="/landingpagepics/breastcancer.png"
                                 alt="Health Awareness"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                             />
                         </motion.div>
 
@@ -95,10 +98,11 @@ const AboutPage = () => {
                             transition={{ duration: 1, delay: 0.4 }}
                             className="absolute bottom-10 right-10 w-[260px] h-[340px] rounded-[60px] overflow-hidden shadow-2xl border-8 border-white z-30 transform rotate-6"
                         >
-                            <img
+                            <Image
                                 src="/landingpagepics/clothingcampagin.png"
                                 alt="Clothing Drive"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
                             />
                         </motion.div>
 

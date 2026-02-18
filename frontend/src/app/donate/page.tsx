@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/Button';
-import { Copy, Check, Heart, ShieldCheck, Wallet } from 'lucide-react';
+import Image from 'next/image';
+import { Copy, Check, Heart, ShieldCheck } from 'lucide-react';
 
 const DonatePage = () => {
     const [copied, setCopied] = useState(false);
-    const [amount, setAmount] = useState('');
+
     const [formData, setFormData] = useState({
         name: '',
         whatsapp: '',
@@ -137,8 +138,8 @@ const DonatePage = () => {
                             {/* QR Code 1 */}
                             <div className="p-5 bg-slate-50 rounded-2xl flex flex-col items-center justify-center space-y-3">
                                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Scan to Pay</div>
-                                <div className="w-75 h-65 bg-white p-2 rounded-xl">
-                                    <img src="/payment/nayapay.jpeg" alt="Nayapay QR" className="w-full h-full object-contain" />
+                                <div className="relative w-64 h-64 bg-white p-2 rounded-xl">
+                                    <Image src="/payment/nayapay.jpeg" alt="Nayapay QR" fill className="object-contain" />
                                 </div>
                             </div>
                         </div>
@@ -169,8 +170,8 @@ const DonatePage = () => {
                             {/* QR Code 2 */}
                             <div className="p-5 bg-slate-50 rounded-2xl flex flex-col items-center justify-center space-y-3">
                                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Scan to Pay</div>
-                                <div className="w-80 h-70 bg-white p-2 rounded-xl">
-                                    <img src="/payment/jaazcash.jpeg" alt="JazzCash QR" className="w-full h-full object-contain" />
+                                <div className="relative w-64 h-64 bg-white p-2 rounded-xl">
+                                    <Image src="/payment/jaazcash.jpeg" alt="JazzCash QR" fill className="object-contain" />
                                 </div>
                             </div>
                         </div>
