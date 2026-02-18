@@ -148,7 +148,7 @@ const ServicesPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="p-12 rounded-[50px] bg-slate-50 border border-transparent hover:border-blue-100 hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] transition-all duration-500 group"
+                                className="p-8 md:p-12 rounded-[50px] bg-slate-50 border border-transparent hover:border-blue-100 hover:bg-white hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] transition-all duration-500 group"
                             >
                                 <div className="space-y-8 h-full flex flex-col items-start text-start">
                                     <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white shadow-sm">

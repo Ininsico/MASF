@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 :root {
   /* Premium Blue and White Theme */
   --background: #ffffff;

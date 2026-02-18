@@ -43,7 +43,7 @@ const PlantationGrid = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="md:col-span-4 md:row-span-2 relative rounded-[60px] overflow-hidden group shadow-2xl border-8 border-white"
+                    className="h-[400px] md:h-auto md:col-span-4 md:row-span-2 relative rounded-[60px] overflow-hidden group shadow-2xl border-8 border-white"
                 >
                     <Image
                         src={gridImages[0]}
@@ -62,7 +62,7 @@ const PlantationGrid = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0 }}
-                    className="md:col-span-4 md:row-span-2 rounded-[60px] overflow-hidden shadow-2xl border-8 border-white bg-slate-900 relative group"
+                    className="h-[400px] md:h-auto md:col-span-4 md:row-span-2 rounded-[60px] overflow-hidden shadow-2xl border-8 border-white bg-slate-900 relative group"
                 >
                     <div className="absolute top-6 right-6 z-20 px-6 py-2 bg-blue-600 text-white text-[10px] font-black rounded-full uppercase tracking-widest flex items-center gap-2">
                         <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
@@ -86,7 +86,7 @@ const PlantationGrid = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="flex-1 relative rounded-[60px] overflow-hidden group shadow-2xl border-8 border-white"
+                        className="h-[400px] md:h-auto flex-1 relative rounded-[60px] overflow-hidden group shadow-2xl border-8 border-white"
                     >
                         <Image
                             src={gridImages[1]}
@@ -99,13 +99,13 @@ const PlantationGrid = () => {
                         </div>
                     </motion.div>
 
-                    <div className="flex-1 flex gap-8">
+                    <div className="flex-1 flex flex-col md:flex-row gap-8">
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
-                            className="flex-1 relative rounded-[40px] overflow-hidden group shadow-xl border-4 border-white"
+                            className="h-[300px] md:h-auto flex-1 relative rounded-[40px] overflow-hidden group shadow-xl border-4 border-white"
                         >
                             <Image
                                 src={gridImages[2]}
@@ -119,7 +119,7 @@ const PlantationGrid = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.5 }}
-                            className="flex-1 relative rounded-[40px] overflow-hidden group shadow-xl border-4 border-white"
+                            className="h-[300px] md:h-auto flex-1 relative rounded-[40px] overflow-hidden group shadow-xl border-4 border-white"
                         >
                             <Image
                                 src={gridImages[3]}

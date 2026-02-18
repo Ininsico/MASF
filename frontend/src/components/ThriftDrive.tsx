@@ -31,12 +31,12 @@ const ThriftDrive = () => {
                 {/* Visual Content Side */}
                 <div className="relative">
                     {/* Main Video Card - Professional Frame */}
-                    <div className="relative z-20 rounded-[80px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(37,99,235,0.15)] border-8 border-white bg-slate-100">
+                    <div className="relative z-20 rounded-[40px] md:rounded-[80px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(37,99,235,0.15)] border-4 md:border-8 border-white bg-slate-100">
                         <div className="absolute top-8 left-8 z-20 px-6 py-2 bg-blue-600 text-white text-[10px] font-black rounded-full uppercase tracking-widest flex items-center gap-2">
                             <div className="w-2 h-2 bg-white rounded-full animate-pulse" /> Campaign Action
                         </div>
                         <video
-                            className="w-full h-[600px] object-cover"
+                            className="w-full h-[300px] md:h-[600px] object-cover"
                             autoPlay
                             muted
                             loop
@@ -80,7 +80,7 @@ const ThriftDrive = () => {
                             <div className="w-12 h-[1px] bg-blue-600" />
                             <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-xs font-jakarta">Sustainability Focus</span>
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+                        <h2 className="text-3xl md:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
                             The Thrift <br />
                             <span className="text-blue-600">Drive</span>
                         </h2>

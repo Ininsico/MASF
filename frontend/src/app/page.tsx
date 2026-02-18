@@ -77,7 +77,7 @@ export default function Home() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="space-y-12"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight px-4" dir="rtl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight px-4" dir="rtl">
               "کھجور کے ایک ٹکڑے کے ذریعے ہی سہی، <br className="hidden md:block" />
               <span className="text-blue-400">جہنم کی آگ</span> سے بچو۔"
             </h1>
@@ -145,7 +145,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group relative h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
+                className="group relative h-[400px] md:h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
               >
                 <video
                   autoPlay muted loop playsInline
@@ -167,7 +167,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="group relative h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
+                className="group relative h-[400px] md:h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
               >
                 <img src="/landingpagepics/plantation/plantation3.png" alt="Green Pakistan" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
@@ -184,7 +184,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="group relative h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
+                className="group relative h-[400px] md:h-[600px] rounded-[60px] overflow-hidden border border-white/5 bg-slate-900/40 backdrop-blur-sm"
               >
                 <img src="/landingpagepics/Medicalcamp.png" alt="Medical Camp" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-70" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />

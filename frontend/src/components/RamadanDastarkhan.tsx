@@ -36,7 +36,7 @@ const RamadanDastarkhan = () => {
                 className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:h-[650px] items-stretch"
             >
                 {/* Video Card */}
-                <div className="relative h-[500px] lg:h-full rounded-[60px] overflow-hidden shadow-2xl border-8 border-white group bg-slate-100">
+                <div className="relative h-[400px] lg:h-full rounded-[60px] overflow-hidden shadow-2xl border-8 border-white group bg-slate-100">
                     <div className="absolute top-8 left-8 z-20 px-6 py-2 bg-blue-600 text-white text-xs font-black rounded-full uppercase tracking-widest flex items-center gap-2">
                         <Utensils size={14} /> Community Iftar
                     </div>

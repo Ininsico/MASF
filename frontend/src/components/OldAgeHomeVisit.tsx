@@ -74,7 +74,7 @@ const OldAgeHomeVisit = () => {
                 </div>
 
                 {/* Video Card (Right) */}
-                <div className="relative h-[500px] lg:h-full rounded-[60px] overflow-hidden shadow-2xl border-8 border-white group order-1 lg:order-2 bg-slate-100">
+                <div className="relative h-[400px] lg:h-full rounded-[60px] overflow-hidden shadow-2xl border-8 border-white group order-1 lg:order-2 bg-slate-100">
                     <div className="absolute top-8 right-8 z-20 px-6 py-2 bg-blue-600 text-white text-xs font-black rounded-full uppercase tracking-widest flex items-center gap-2">
                         <Heart size={14} fill="white" /> Spreading Love
                     </div>
