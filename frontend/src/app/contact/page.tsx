@@ -177,6 +177,24 @@ const ContactPage = () => {
                         </form>
                     </div>
                 </div>
+
+                {/* Map Section */}
+                <div className="w-full h-[450px] rounded-[40px] overflow-hidden shadow-xl border border-slate-100 bg-slate-50 relative group">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.4919640930666!2d73.1591346!3d31.4556504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392269202f2facaf%3A0xe78f0200ff49568b!2sAziz%20Fatimah%20Medical%20and%20Dental%20College!5e0!3m2!1sen!2s!4v1771429942088!5m2!1sen!2s"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="w-full h-full grayscale-[1] hover:grayscale-0 transition-all duration-700"
+                    />
+                    <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/20 pointer-events-none">
+                        <p className="font-bold text-slate-900 text-sm">Faisalabad Campus</p>
+                        <p className="text-xs text-slate-500">Aziz Fatimah Medical & Dental College</p>
+                    </div>
+                </div>
             </section>
 
             <Footer />
