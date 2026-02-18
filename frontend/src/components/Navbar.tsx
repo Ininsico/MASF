@@ -104,7 +104,7 @@ const Navbar = () => {
                             >
                                 <Link href="/donate" onClick={() => setIsOpen(false)}>
                                     <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg h-14 rounded-2xl shadow-xl shadow-blue-500/20">
-                                        Donate Now <Heart size={20} className="ml-2 fill-white" />
+                                        Donate Now
                                     </Button>
                                 </Link>
                             </motion.div>

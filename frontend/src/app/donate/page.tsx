@@ -59,8 +59,8 @@ const DonatePage = () => {
             formDataToSend.append('amount', formData.amount);
             formDataToSend.append('screenshot', screenshot);
 
-            // const response = await fetch('http://localhost:5000/api/donation', {
-            const response = await fetch('https://masf.onrender.com/api/donation', {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+            const response = await fetch(`${apiUrl}/api/donation`, {
                 method: 'POST',
                 body: formDataToSend,
             });

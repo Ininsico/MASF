@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -60,25 +60,20 @@ exports.submitDonation = (req, res) => {
             }
 
             // Validate environment variables
-            if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-                console.error('❌ Email credentials are missing in .env file');
+            if (!process.env.RESEND_API_KEY) {
+                console.error('❌ Resend API Key is missing in .env file');
                 if (req.file) fs.unlinkSync(req.file.path);
                 return res.status(500).json({
-                    message: 'Server configuration error: Email credentials not set'
+                    message: 'Server configuration error: Resend API Key not set'
                 });
             }
 
             console.log('✅ All validations passed');
             console.log('📧 Preparing email...');
 
-            // Create transporter
-            const transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                    user: process.env.EMAIL_USER,
-                    pass: process.env.EMAIL_PASS,
-                },
-            });
+            const resend = new Resend(process.env.RESEND_API_KEY);
+            const senderEmail = process.env.SENDER_EMAIL || 'noreply@masfpakistan.org';
+            const adminEmail = process.env.ADMIN_EMAIL || 'masfpk@gmail.com';
 
             const submissionDate = new Date().toLocaleString('en-PK', {
                 timeZone: 'Asia/Karachi',
@@ -238,21 +233,28 @@ exports.submitDonation = (req, res) => {
             `;
 
             // Email to Admin with attachment
-            const mailOptions = {
-                from: `"MASF Donation System" <${process.env.EMAIL_USER}>`,
-                to: process.env.EMAIL_USER,
+            console.log('📤 Sending email to admin...');
+
+            // Read file content for attachment
+            const fileContent = fs.readFileSync(req.file.path);
+
+            const { data, error } = await resend.emails.send({
+                from: senderEmail,
+                to: adminEmail,
                 subject: `💰 New Donation Alert: PKR ${parseInt(amount).toLocaleString()} from ${name}`,
                 html: emailTemplate,
                 attachments: [
                     {
                         filename: `payment-proof-${name.replace(/\s+/g, '-')}-PKR${amount}.${path.extname(req.file.originalname).substring(1)}`,
-                        path: req.file.path
+                        content: fileContent
                     }
                 ]
-            };
+            });
 
-            console.log('📤 Sending email to admin...');
-            await transporter.sendMail(mailOptions);
+            if (error) {
+                console.error('Error sending email:', error);
+                throw new Error(error.message);
+            }
             console.log('✅ Email sent successfully');
 
             // Clean up uploaded file after sending email

@@ -1,4 +1,4 @@
-const axios = require('axios');
+const { Resend } = require('resend');
 
 exports.sendContactEmail = async (req, res) => {
     console.log('📩 Contact form submission received');
@@ -7,16 +7,17 @@ exports.sendContactEmail = async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
 
-        if (!process.env.MAILEROO_API_KEY) {
-            console.error('❌ Maileroo API Key is missing in .env file');
+        if (!process.env.RESEND_API_KEY) {
+            console.error('❌ Resend API Key is missing in .env file');
             return res.status(500).json({
-                message: 'Server configuration error: Maileroo API Key not set',
-                error: 'Missing MAILEROO_API_KEY'
+                message: 'Server configuration error: Resend API Key not set',
+                error: 'Missing RESEND_API_KEY'
             });
         }
 
-        const senderEmail = process.env.SENDER_EMAIL || 'masfpk@gmail.com';
-        console.log('✅ Maileroo configuration found');
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        const senderEmail = process.env.SENDER_EMAIL || 'noreply@masfpakistan.org';
+        console.log('✅ Resend configuration found');
         console.log('📧 Sending from:', senderEmail);
 
         const emailTemplate = (isAdmin = false) => `
@@ -167,27 +168,26 @@ exports.sendContactEmail = async (req, res) => {
 </html>
         `;
 
-        const sendMailerooEmail = async (to, subject, htmlContent, replyTo) => {
-            const payload = {
+        const sendEmail = async (to, subject, htmlContent, replyTo) => {
+            const { data, error } = await resend.emails.send({
                 from: senderEmail,
                 to: to,
                 subject: subject,
                 html: htmlContent,
                 reply_to: replyTo
-            };
-
-            await axios.post('https://api.maileroo.com/v1/emails', payload, {
-                headers: {
-                    'Authorization': `Bearer ${process.env.MAILEROO_API_KEY}`,
-                    'Content-Type': 'application/json'
-                }
             });
+
+            if (error) {
+                throw new Error(error.message);
+            }
+            return data;
         };
 
         // Email to Admin
         console.log('📤 Sending admin notification email...');
-        await sendMailerooEmail(
-            senderEmail, // Send to self (admin)
+        const adminEmail = process.env.ADMIN_EMAIL || 'masfpk@gmail.com';
+        await sendEmail(
+            adminEmail,
             `🔔 New Contact Inquiry: ${subject}`,
             emailTemplate(true),
             email // Reply to user
@@ -196,7 +196,7 @@ exports.sendContactEmail = async (req, res) => {
 
         // Confirmation Email to User
         console.log('📤 Sending user confirmation email...');
-        await sendMailerooEmail(
+        await sendEmail(
             email,
             `Thank you for contacting MASF - We received your message`,
             emailTemplate(false)
