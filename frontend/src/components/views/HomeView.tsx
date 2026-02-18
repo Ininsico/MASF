@@ -22,6 +22,7 @@ import ThriftDrive from '@/components/ThriftDrive';
 import MedicalCamp from '@/components/MedicalCamp';
 import Footer from '@/components/Footer';
 import AnnouncementPopup from '@/components/AnnouncementPopup';
+import RamadanTicker from '@/components/RamadanTicker';
 
 
 
@@ -124,6 +125,9 @@ export default function HomeView() {
             </section>
 
 
+
+            {/* Ramadan Ticker */}
+            <RamadanTicker />
 
             {/* Achievements Section - High Impact Overhaul */}
             <section className="py-12 md:py-20 relative overflow-hidden bg-white">
