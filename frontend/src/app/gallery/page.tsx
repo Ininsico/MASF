@@ -176,40 +176,75 @@ const GalleryPage = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-2xl flex items-center justify-center p-6 md:p-12"
+                        className="fixed inset-0 z-[9999] bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-8"
                         onClick={() => setSelectedMedia(null)}
                     >
+                        {/* Close Button */}
                         <button
-                            className="absolute z-[110] top-4 right-4 md:top-10 md:right-10 w-10 h-10 md:w-16 md:h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white hover:bg-white hover:text-slate-950 transition-all duration-500 group border border-white/10"
+                            className="absolute top-4 right-4 md:top-8 md:right-8 z-[10000] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white/80 hover:text-white transition-all duration-300 backdrop-blur-md border border-white/10 group"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedMedia(null);
                             }}
+                            aria-label="Close Gallery"
                         >
-                            <X size={24} className="group-hover:rotate-90 transition-transform duration-500 md:w-8 md:h-8" />
+                            <X size={24} className="group-hover:rotate-90 transition-transform duration-300 md:w-8 md:h-8" />
                         </button>
 
-                        <div className="relative w-full max-w-[1400px] max-h-[80vh] aspect-video rounded-[60px] overflow-hidden border-[12px] border-white/10 bg-slate-950 shadow-2xl" onClick={e => e.stopPropagation()}>
-                            {selectedMedia.type === 'video' ? (
-                                <video
-                                    src={selectedMedia.src}
-                                    className="w-full h-full object-contain"
-                                    controls
-                                    autoPlay
-                                />
-                            ) : (
-                                <Image
-                                    src={selectedMedia.src}
-                                    alt={selectedMedia.title}
-                                    fill
-                                    className="object-contain"
-                                />
-                            )}
-                            <div className="absolute bottom-0 inset-x-0 p-6 md:p-12 bg-gradient-to-t from-slate-900/90 to-transparent">
-                                <p className="text-blue-400 text-xs font-black uppercase tracking-widest mb-3">Viewing Archive</p>
-                                <h3 className="text-2xl md:text-3xl font-bold text-white leading-none">{selectedMedia.title}</h3>
+                        {/* Content Container */}
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="relative w-full max-w-6xl max-h-[85vh] bg-black rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/10 flex flex-col"
+                            onClick={e => e.stopPropagation()}
+                        >
+                            {/* Media Area */}
+                            <div className="relative flex-1 min-h-0 bg-black flex items-center justify-center overflow-hidden">
+                                {selectedMedia.type === 'video' ? (
+                                    <video
+                                        src={selectedMedia.src}
+                                        className="w-full h-full max-h-[80vh] object-contain"
+                                        controls
+                                        autoPlay
+                                        playsInline
+                                    />
+                                ) : (
+                                    <div className="relative w-full h-full min-h-[40vh]">
+                                        <Image
+                                            src={selectedMedia.src}
+                                            alt={selectedMedia.title}
+                                            fill
+                                            className="object-contain"
+                                            sizes="(max-width: 768px) 100vw, 80vw"
+                                            priority
+                                        />
+                                    </div>
+                                )}
                             </div>
-                        </div>
+
+                            {/* Caption Bar */}
+                            <div className="flex-shrink-0 p-6 md:p-8 bg-slate-900/90 backdrop-blur-md border-t border-white/10">
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                                            <p className="text-blue-400 text-xs font-black uppercase tracking-widest">
+                                                Viewing {categories.find(c => c.id === selectedMedia.category)?.label}
+                                            </p>
+                                        </div>
+                                        <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">{selectedMedia.title}</h3>
+                                    </div>
+                                    <button
+                                        onClick={() => setSelectedMedia(null)}
+                                        className="hidden md:flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-bold text-white transition-all"
+                                    >
+                                        Close View
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
