@@ -24,7 +24,7 @@ const Navbar = () => {
     return (
         <nav className="fixed top-0 w-full z-[9999] py-4">
             <div className="max-w-7xl mx-auto px-4 md:px-6">
-                <div className="relative flex justify-between items-center px-5 py-2 md:px-8 md:py-3 rounded-[32px] bg-white/95 backdrop-blur-sm shadow-md border border-slate-200">
+                <div className="relative z-[10000] flex justify-between items-center px-5 py-2 md:px-8 md:py-3 rounded-[32px] bg-white/95 backdrop-blur-sm shadow-md border border-slate-200">
                     {/* Logo */}
                     <Link href="/" className="flex items-center group">
                         <div className="relative w-36 h-10 md:w-56 md:h-16 overflow-hidden group-hover:scale-105 transition-transform">
