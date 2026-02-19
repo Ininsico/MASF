@@ -9,6 +9,7 @@ import OldAgeHomeVisit from '@/components/OldAgeHomeVisit';
 import AboutMedicalCamps from '@/components/AboutMedicalCamps';
 import Recap2024 from '@/components/Recap2024';
 import Footer from '@/components/Footer';
+import DonationTicker from '@/components/DonationTicker';
 
 const AboutPage = () => {
     return (
@@ -117,6 +118,8 @@ const AboutPage = () => {
             <OldAgeHomeVisit />
 
             <AboutMedicalCamps />
+
+            <DonationTicker />
 
             <Recap2024 />
 

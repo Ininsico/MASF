@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Moon, Utensils } from 'lucide-react';
+import RamadanUrduTicker from './RamadanUrduTicker';
 
 const RamadanDastarkhan = () => {
     const sectionRef = useRef(null);
@@ -17,6 +18,7 @@ const RamadanDastarkhan = () => {
 
     return (
         <section ref={sectionRef} className="w-full max-w-[1400px] mx-auto py-10 px-6 relative overflow-hidden">
+            <RamadanUrduTicker />
 
             {/* Header */}
             <div className="text-center mb-20 relative z-10">
