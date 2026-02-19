@@ -6,7 +6,7 @@ import { Moon, Star } from "lucide-react";
 
 const RamadanUrduTicker = () => {
     return (
-        <div className="w-full bg-blue-600 overflow-hidden py-3 border-y border-blue-700 relative z-20 mb-10 rounded-xl shadow-lg">
+        <div className="w-full bg-blue-600 overflow-hidden py-3 border-y border-blue-700 relative z-20 mb-10">
             <div className="flex whitespace-nowrap">
                 <motion.div
                     animate={{ x: [0, -1000] }}
@@ -26,7 +26,7 @@ const RamadanUrduTicker = () => {
                                 </span>
                                 <Star className="text-white fill-white w-4 h-4 animate-pulse" />
                             </div>
-                            <span className="text-blue-300/50">✦</span>
+                            <span className="text-blue-200">✦</span>
                         </div>
                     ))}
                 </motion.div>
@@ -50,7 +50,7 @@ const RamadanUrduTicker = () => {
                                 </span>
                                 <Star className="text-white fill-white w-4 h-4 animate-pulse" />
                             </div>
-                            <span className="text-blue-300/50">✦</span>
+                            <span className="text-blue-200">✦</span>
                         </div>
                     ))}
                 </motion.div>
